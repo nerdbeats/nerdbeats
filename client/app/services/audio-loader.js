@@ -1,4 +1,4 @@
-window.app.service('AudioLoaderService', function ($http, $q, SoundCloudService, AudioContext, BufferAudioSourceUnit, StreamAudioSourceUnit) {
+window.app.factory('AudioLoaderService', function ($http, $q, SoundCloudService, AudioContext, BufferAudioSourceUnit, StreamAudioSourceUnit) {
   return {
     getStream: function (id) {
       return SoundCloudService.stream(id).then(function (sound) {

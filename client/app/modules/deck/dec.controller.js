@@ -1,18 +1,25 @@
 DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService) {
 
   $scope.vm = {};
-  $scope.vm.effects = [
-    {value: 1, type: 'lowpass'},
-    {value: 30,  type: 'highpass'}
-  ];
+  $scope.vm.effects = [ ];
+
+  $rootScope.$on('addFilter', function(e, filterType, channel){
+
+    if ($scope.channel != channel) {
+      return;
+    }
+    $scope.vm.effects.push({type: filterType})
+
+  });
+
   $rootScope.$on('addToDeck', function (e, track, channel) {
     if ($scope.channel != channel) {
       return;
     }
-    AudioLoaderService.getStream(track.id).then(function (stream) {
-      AudioManagerService.loadTrackTo(channel.toLowerCase(), stream);
+    AudioLoaderService.getBuffer(track.id).then(function (sound) {
+      AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
+      $scope.vm.track = track;
     });
-    $scope.vm.track = track;
   });
 
 }

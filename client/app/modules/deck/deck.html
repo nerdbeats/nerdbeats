@@ -4,10 +4,8 @@
     <header></header>
     <div class="effects-list">
       effect list
-      <div ng-repeat="effect in vm.effects">
-          <effect-slider value="effect.value"></effect-slider >
-
-        <div bind-attr="{{effect.type}}"  value=""></div>
+      <div ng-repeat="effect in vm.effects"  class="effect-slider">
+        <effect type="effect.type" value="effect.value"></effect>
       </div>
     </div>
   </section>
