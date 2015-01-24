@@ -2,7 +2,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   function Deck() {
     this.node = AudioContext.createGain();
     this.bus = new AudioBusUnit();
-    this.startPosition = 0.0;
+    this.startPosition = null;
 
     this.bus.connect(this.node);
   }
@@ -28,7 +28,9 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
   Deck.prototype.play = function () {
     if (!this.isPlaying()) {
-      this.bus.input().currentTime(this.startPosition);
+      if (this.startPosition){
+        this.bus.input().currentTime(this.startPosition);
+      }
       this.bus.input().play();
     }
   };
@@ -36,7 +38,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype.stop = function () {
     if (this.isPlaying()) {
       this.bus.input().stop();
-      this.bus.input().seek(this.startPosition);
+      this.bus.input().currentTime(this.startPosition || 0);
     }
   };
 

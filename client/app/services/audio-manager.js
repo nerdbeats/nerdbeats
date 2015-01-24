@@ -36,8 +36,8 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
       mx.decks[deck].stop();
       return this;
     },
-    currentPosition: function (deck, position) {
-      return mx.decks[deck].currentPosition(position);
+    currentTime: function (deck, position) {
+      return mx.decks[deck].currentTime(position);
     },
     cue: function (deck, position) {
       mx.decks[deck].cue(position);
