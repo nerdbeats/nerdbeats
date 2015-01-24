@@ -21,7 +21,7 @@
 </head>
 <body ng-app="nerdBeats">
   <!-- Add your site or application content here -->
-  <div ng-view="" class="container-fluid">
+  <div ng-view="">
   </div>
   <script src="vendor/waveform.js"></script>
   <!-- build:js({client,node_modules}) app/vendor.js -->
@@ -38,6 +38,10 @@
   <script src="bower_components/eventEmitter/EventEmitter.js"></script>
   <script src="bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
   <script src="bower_components/angular-bootstrap-slider/slider.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/velocity/velocity.js"></script>
+  <script src="bower_components/velocity/velocity.ui.js"></script>
+  <script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -56,6 +60,10 @@
       <script src="bower_components/eventEmitter/EventEmitter.js"></script>
       <script src="bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
       <script src="bower_components/angular-bootstrap-slider/slider.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/velocity/velocity.js"></script>
+      <script src="bower_components/velocity/velocity.ui.js"></script>
+      <script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -75,6 +83,7 @@
   <script src="app/domain/utils/value-helper.js"></script>
   <script src="app/home/home.controller.js"></script>
   <script src="app/home/home.js"></script>
+  <script src="app/modules/console/console.controller.js"></script>
   <script src="app/modules/deck/dec.controller.js"></script>
   <script src="app/modules/deck/dec.directive.js"></script>
   <script src="app/modules/deck/waveform.directive.js"></script>

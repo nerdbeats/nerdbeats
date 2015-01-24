@@ -6,6 +6,8 @@
 @icon-font-path: '/bower_components/bootstrap/fonts/';
 @fa-font-path: '/bower_components/font-awesome/fonts';
 
+.container { width: @container-desktop !important; }
+
 /**
  * App-wide Styles
  */
@@ -19,6 +21,7 @@
 
 // injector
 @import 'home/home.less';
+@import 'modules/console/console.less';
 @import 'modules/deck/dec.less';
 @import 'modal/modal.less';
 // endinjector
