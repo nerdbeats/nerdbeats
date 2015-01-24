@@ -1,10 +1,22 @@
 <div class="deck">
   <player channel="{{channel}}" , track="vm.track"/>
   <section class="effects-desk">
-    <header></header>
-    <div class="effects-list">
-      effect list
-      <div ng-repeat="effect in vm.effects"  class="effect-slider">
+    <header>
+      <button ng-click="toggleEffectsGallery()">+ Add Effect</button>
+    </header>
+
+    <div class="effects-gallery" ng-show="vm.showGallery">
+      <div class="row">
+
+        <div class="col-md-6">
+          <button ng-click="addFilter('lopass')">lopass</button>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+    <div class="effects-list" ng-hide="vm.showGallery">
+
+      <div ng-repeat="effect in vm.effects" class="effect-slider">
         <effect type="effect.type" value="effect.value"></effect>
       </div>
     </div>
