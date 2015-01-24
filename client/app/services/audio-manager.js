@@ -33,8 +33,12 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
       mx.decks[deck].stop();
       return this;
     },
-    seek: function (deck, time) {
-      mx.decks[deck].seek(time);
+    seek: function (deck, position) {
+      mx.decks[deck].seek(position);
+      return this;
+    },
+    cue: function (deck, position) {
+      mx.decks[deck].cue(position);
       return this;
     }
   };
