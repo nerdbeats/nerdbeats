@@ -1,9 +1,22 @@
-
 <section class="mixer">
   <hearer>
 
   </hearer>
-  <waveform width="500" height="100" innercolor="#333" track="vm.track"></waveform>
+  <div class="wave-progress">
+    <waveform width="500" height="200" innercolor="#333" track="vm.track"></waveform>
+    <span slider ng-model="vm.progress" min=0 max=100></span>
+    <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical"></span>
+
+  </div>
+
+
+  <div class="row">
+
+    <button ng-click="play()">play</button>
+    <button ng-click="pause()">pause</button>
+    <button ng-click="stop()">stop</button>
+    <button ng-click="cue()">cue</button>
+  </div>
 
 </section>
 
