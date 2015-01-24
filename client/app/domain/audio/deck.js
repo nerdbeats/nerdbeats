@@ -2,6 +2,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   function Deck() {
     this.node = AudioContext.createGain();
     this.bus = new AudioBusUnit();
+    this.startPosition = 0.0;
 
     this.bus.connect(this.node);
   }
@@ -22,6 +23,11 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
   Deck.prototype.stop = function () {
     this.bus.input().stop();
+    this.bus.input().seek(this.startPosition);
+  };
+
+  Deck.prototype.pause = function () {
+    this.bus.input().pause();
   };
 
   Deck.prototype.volume = function (value) {
@@ -30,6 +36,14 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
     }
 
     return this.node.gain.value;
+  };
+
+  Deck.prototype.cue = function (value) {
+    if (lodash.isNumber(value) && value > 0) {
+      this.startPosition = value;
+    }
+
+    return this.startPosition;
   };
 
   return Deck;
