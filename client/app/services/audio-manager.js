@@ -42,6 +42,15 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
     cue: function (deck, position) {
       mx.decks[deck].cue(position);
       return this;
+    },
+    lowFreq: function (deck, value) {
+      return mx.decks[deck].lowFrequency(value);
+    },
+    midFreq: function (deck, value) {
+      return mx.decks[deck].midFrequency(value);
+    },
+    hiFreq: function (deck, value) {
+      return mx.decks[deck].highFrequency(value);
     }
   };
 });
