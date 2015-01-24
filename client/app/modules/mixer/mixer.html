@@ -5,62 +5,69 @@
 
     <div class="col-md-6 mixer-sliders">
 
-      <div class="fs-title">
-        <span class="fst-label">LOW</span>
-        <span class="fst-value txt-cyan">+ 2.0</span>
+      <div class="nb-slider-label">
+        <span class="sl-title">LOW</span>
+        <span class="sl-value txt-cyan">+ 2.0</span>
       </div>
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelA.low" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div class="fs-title">
-        <span class="fst-label">MED</span>
-        <span class="fst-value txt-cyan">- 5.0</span>
+      <div class="nb-slider-label">
+        <span class="sl-title">MID</span>
+        <span class="sl-value txt-cyan">- 5.0</span>
       </div>
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelA.mid" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div class="fs-title">
-        <span class="fst-label">HIGH</span>
-        <span class="fst-value txt-cyan">+ 3.0</span>
+      <div class="nb-slider-label">
+        <span class="sl-title">HIGH</span>
+        <span class="sl-value txt-cyan">+ 3.0</span>
       </div>
-
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelA.high" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
       <div>
-        <span slider ng-model="channelA.vol" min=0 max=100 orientation="vertical" handle="square"></span>
+        <span slider ng-model="channelA.vol" min=0 max=100 orientation="vertical" handle="square" tooltip="hide"></span>
       </div>
 
     </div>
     <div class="col-md-6 mixer-sliders">
-      <div class="fs-title">
-        <span class="fst-label">LOW</span>
-        <span class="fst-value txt-red">+ 2.0</span>
+
+      <div class="nb-slider-label">
+        <span class="sl-title">LOW</span>
+        <span class="sl-value txt-red">+ 2.0</span>
       </div>
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div class="fs-title">
-        <span class="fst-label">LOW</span>
-        <span class="fst-value txt-red">+ 2.0</span>
+      <div class="nb-slider-label">
+        <span class="sl-title">MID</span>
+        <span class="sl-value txt-red">+ 2.0</span>
       </div>
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div class="fs-title">
-        <span class="fst-label">LOW</span>
-        <span class="fst-value txt-red">+ 2.0</span>
+      <div class="nb-slider-label">
+        <span class="sl-title">HIGH</span>
+        <span class="sl-value txt-red">+ 2.0</span>
       </div>
-      <div class="frequency-slider">
+      <div class="fqz-horizontal-slider">
         <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div><span slider ng-model="channelB.vol" min=0 max=100 orientation="vertical"></span></div>
+      <div class="nb-slider-label">
+        <span class="sl-title">VOL</span>
+        <span class="sl-value txt-red">+ 2.0</span>
+      </div>
+      <div class="nb-slider-holder">
+        <span slider ng-model="channelB.vol" min=0 max=100 orientation="vertical" handle="square" tooltip="hide"></span>
+      </div>
+
     </div>
   </div>
 </div>
