@@ -1,7 +1,7 @@
-MixerCtrl = function ($scope,  AudioManagerService) {
+MixerCtrl = function ($scope, AudioManagerService) {
 
-
-
+  $scope.vm = {}
+  $scope.vm.tst = 0;
 }
 
 

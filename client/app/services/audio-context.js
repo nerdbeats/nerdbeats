@@ -1,3 +1,3 @@
-window.app.service('AudioContext', function ($window) {
+window.app.factory('AudioContext', function ($window) {
   return new ($window.AudioContext || $window.webkitAudioContext)();
 });

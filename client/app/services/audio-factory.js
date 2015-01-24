@@ -1,9 +1,8 @@
-window.app.service('AudioFactoryService', [
-    'Lodash',
-    'AudioContext',
-    'DubDelay'
-  ],
-  function (lodash, ctx, DubDelay) {
+window.app.factory('AudioFactoryService',
+  function (Lodash, AudioContext, DubDelayUnit) {
+    lodash = Lodash;
+    ctx = AudioContext;
+    DubDelay = DubDelayUnit;
     return {
       getContext: function () {
         return ctx;

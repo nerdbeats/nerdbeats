@@ -1,12 +1,17 @@
 DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService) {
 
   $scope.vm = {};
-  $scope.vm.effects = [
-    {type: 'lopass', value: 1 },
-    {type: 'hipass', value: 1 },
-    {type: 'distortion', value: 1},
+  $scope.vm.effects = [ ];
 
-  ];
+  $rootScope.$on('addFilter', function(e, filterType, channel){
+
+    if ($scope.channel != channel) {
+      return;
+    }
+    $scope.vm.effects.push({type: filterType})
+
+  });
+
   $rootScope.$on('addToDeck', function (e, track, channel) {
     if ($scope.channel != channel) {
       return;

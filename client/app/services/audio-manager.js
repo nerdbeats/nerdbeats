@@ -1,4 +1,4 @@
-window.app.service('AudioManagerService', function (AudioContext, Mixer) {
+window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
   var mx = new Mixer();
   mx.connect(AudioContext.destination);
 

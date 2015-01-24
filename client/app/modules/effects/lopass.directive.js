@@ -1,13 +1,18 @@
-app.directive('lopass', function () {
+app.directive('lopass', function (AudioFactoryService, AudioManagerService) {
   return {
     templateUrl: 'app/modules/effects/slide-filter.html',
     restrict: 'EA',
     scope: {
       value: '=value',
-      type: '=type'
+      type: '=type',
+      deck: '=deck'
     },
     link: function (scope, element, attrs) {
-      debugger
+
+      var filter = AudioFactoryService.createFilter({type: 'lowpass', value: 1000});
+
+      AudioManagerService.insertEffectTo('a', filter, 0);
+
     }
   };
 });

@@ -1,4 +1,4 @@
-window.app.service('SoundCloudService', function ($window, $http, $q, config) {
+window.app.factory('SoundCloudService', function ($window, $http, $q, config) {
   var api = $window.SC;
   api.initialize({
     client_id: config.api.soundCloud.clientId
