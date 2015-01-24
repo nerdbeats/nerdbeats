@@ -10,10 +10,10 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     if ($scope.channel != channel) {
       return;
     }
-    AudioLoaderService.getStream(track.id).then(function (stream) {
-      AudioManagerService.loadTrackTo(channel.toLowerCase(), stream);
+    AudioLoaderService.getBuffer(track.id).then(function (sound) {
+      AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
+      $scope.vm.track = track;
     });
-    $scope.vm.track = track;
   });
 
   $scope.toggleEffectsGallery  = function(){

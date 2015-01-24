@@ -12,7 +12,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
 
   StreamAudioSourceUnit.prototype.src = function (src) {
     if (lodash.isString(src)) {
-      if (this.playing) {
+      if (this.isPlaying()) {
         this.stop();
       }
 
@@ -50,6 +50,10 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
     }
 
     return this.node.mediaElement.currentTime;
+  };
+
+  StreamAudioSourceUnit.prototype.playbackRate = function (value) {
+    return 0;
   };
 
   return StreamAudioSourceUnit;
