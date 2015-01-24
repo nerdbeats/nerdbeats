@@ -6,7 +6,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     {type: 'lp-filter', title: 'LP Filter'},
     {type: 'hp-filter', title: 'HP Filter'},
     {type: 'bp-filter', title: 'BP Filter'},
-    {type: 'delay', title: 'Delay'},
+    {type: 'dub-delay', title: 'Dub Delay'},
     {type: 'distortion', title: 'Distortion'}
   ];
   $scope.vm.effects = [];
@@ -166,6 +166,9 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     } else if (type === 'bp-filter') {
       unit = AudioFactoryService.createBPFilter();
       defaultValue = unit.frequency.value;
+    } else if (type === 'dub-delay') {
+      unit = AudioFactoryService.createDubDelay();
+      defaultValue = 0;
     }
 
     if (unit) {
