@@ -20,7 +20,9 @@
   <body ng-app="nerdBeatsApp">
 
     <!-- Add your site or application content here -->
-    <div ng-view=""></div>
+    <div ng-view="">
+
+    </div>
 
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
@@ -39,6 +41,10 @@
     <!-- build:js({.tmp,client}) app/app.js -->
     <script src="app/app.js"></script>
       <!-- injector:js -->
+      <script src="app/config.js"></script>
+      <script src="app/domain/audio/core/audio-unit.js"></script>
+      <script src="app/services/sound-cloud.js"></script>
+      <script src="app/shims/event-emitter.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <!-- endinjector -->
