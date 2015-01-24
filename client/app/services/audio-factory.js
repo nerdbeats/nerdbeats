@@ -1,4 +1,4 @@
-window.app.service('AudioFactory', [
+window.app.service('AudioFactoryService', [
     'Lodash',
     'AudioContext',
     'AudioBusUnit'

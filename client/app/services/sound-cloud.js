@@ -17,6 +17,22 @@ window.app.service('SoundCloudService', function ($window, $http, $q, config) {
       });
 
       return def.promise;
+    },
+    stream: function (id) {
+      var def = $q.defer();
+
+      api.stream('/tracks/' + id, function (track, err) {
+        if (!err) {
+          def.resolve(track);
+        } else {
+          def.reject(err);
+        }
+      });
+
+      return def.promise
+    },
+    getStreamUrl: function (id) {
+      return api._prepareStreamUrl('/tracks/' + id);
     }
   };
 });
