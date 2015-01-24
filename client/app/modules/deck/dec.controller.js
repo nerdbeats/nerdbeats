@@ -2,8 +2,10 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
   $scope.vm = {};
   $scope.vm.effects = [
-    {value: 1, type: 'lowpass'},
-    {value: 30,  type: 'highpass'}
+    {type: 'lopass', value: 1 },
+    {type: 'hipass', value: 1 },
+    {type: 'distortion', value: 1},
+
   ];
   $rootScope.$on('addToDeck', function (e, track, channel) {
     if ($scope.channel != channel) {

@@ -31,6 +31,7 @@ window.app.service('AudioFactoryService', [
         options = options || {};
 
         if (lodash.isString(options.type)) {
+
           node.type = options.type;
         }
 
