@@ -1,17 +1,29 @@
 window.app.factory('AudioBusUnit', ['Lodash','AudioUnit', function (lodash, AudioUnit) {
-  function AudioBusUnit(input) {
+  function AudioBusUnit() {
     this.inserts = [];
     this.output = null;
-    this.node = input;
-
-    this.on('insert:added', function (insert) {
-      if (lodash.isObject(this.output)) {
-        insert.connect(this.output);
-      }
-    });
   }
 
   AudioBusUnit.prototype = new AudioUnit();
+
+  AudioBusUnit.prototype.input = function (input) {
+    if (lodash.isObject(input)) {
+      if (lodash.isObject(this.node)) {
+        this.node.disconnect();
+      }
+
+      this.node = input;
+      var output = lodash.last(this.inserts) || this.output;
+
+      if (lodash.isObject(output)) {
+        this.node.connect(output);
+      }
+
+      this.trigger('input:changed', [input]);
+    }
+
+    return this.node;
+  };
 
   AudioBusUnit.prototype.addInsert = function (newInsert, position) {
     var insert;
@@ -32,6 +44,10 @@ window.app.factory('AudioBusUnit', ['Lodash','AudioUnit', function (lodash, Audi
     insert.connect(newInsert);
 
     this.trigger('insert:added', [newInsert]);
+
+    if (lodash.isObject(this.output)) {
+      insert.connect(this.output);
+    }
   };
 
   AudioBusUnit.prototype.removeInsert = function (index) {
@@ -62,23 +78,13 @@ window.app.factory('AudioBusUnit', ['Lodash','AudioUnit', function (lodash, Audi
   };
 
   AudioBusUnit.prototype.connect = function (target) {
-    var source = lodash.last(this.inserts);
-
-    if (!lodash.isObject(source)) {
-      source = this;
-    }
-
+    var source = lodash.last(this.inserts) || this;
     this.output = target;
     AudioUnit.prototype.connect.call(source, this.output);
   };
 
   AudioBusUnit.prototype.disconnect = function () {
-    var source = lodash.last(this.inserts);
-
-    if (lodash.isObject(source)) {
-      source = this;
-    }
-
+    var source = lodash.last(this.inserts) || this;
     this.output = null;
     AudioUnit.prototype.disconnect.call(source);
   };

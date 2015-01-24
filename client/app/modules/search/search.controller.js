@@ -1,4 +1,4 @@
-SearchCtrl = function ($scope, SoundCloudService) {
+SearchCtrl = function ($scope, SoundCloudService, $rootScope) {
 
   $scope.vm = {};
   $scope.vm.playlist = []
@@ -7,8 +7,6 @@ SearchCtrl = function ($scope, SoundCloudService) {
   SoundCloudService.find({limit: 50}).then(function (res) {
     $scope.vm.tracks = res
   })
-
-
 
   $scope.search = function () {
     SoundCloudService.find({q: $scope.vm.query, limit: 50}).then(function (res) {
@@ -28,6 +26,14 @@ SearchCtrl = function ($scope, SoundCloudService) {
   $scope.isOnPlaylist = function (track) {
     return _.findWhere($scope.vm.playlist, {id: track.id})
   }
+
+
+  $scope.addToMixer = function (track, dest) {
+    $rootScope.$emit('addToMixer', track, dest);
+    console.log(dest);
+  }
+
+
 }
 
 app.controller("SearchCtrl", SearchCtrl)
