@@ -19,12 +19,15 @@
   </head>
   <body ng-app="nerdBeatsApp">
 
+
+    <!-- it can be used as an element -->
+    <slider ng-model="sliders.sliderValue" min="testOptions.min" step="testOptions.step" max="testOptions.max" value="testOptions.value"></slider>
+
+    <!-- ..or an attribute -->
+    <span slider ng-model="sliders.secondSliderValue" min="minTest"></span>
+
     <!-- Add your site or application content here -->
     <div ng-view="">
-
-      <!-- it can be used as an element -->
-      <slider ng-model="sliders.sliderValue" min="testOptions.min" step="testOptions.step" max="testOptions.max" value="testOptions.value"></slider>
-
     </div>
 
     <!-- build:js({client,node_modules}) app/vendor.js -->
@@ -51,6 +54,7 @@
       <script src="app/domain/audio/core/audio-bus.js"></script>
       <script src="app/domain/audio/core/audio-unit.js"></script>
       <script src="app/services/audio-context.js"></script>
+      <script src="app/services/audio-factory.js"></script>
       <script src="app/services/sound-cloud.js"></script>
       <script src="app/shims/event-emitter.js"></script>
       <script src="app/shims/lodash.js"></script>
