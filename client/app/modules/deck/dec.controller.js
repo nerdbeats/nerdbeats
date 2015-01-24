@@ -6,7 +6,6 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     {value: 30},
     {value: 50},
     {value: 70}
-
   ];
   $rootScope.$on('addToDeck', function (e, track, channel) {
     if ($scope.channel != channel) {

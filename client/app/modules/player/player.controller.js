@@ -8,6 +8,9 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
 
 
   $scope.play = function () {
+    if (!$scope.track){
+      return;
+    }
     if (!AudioManagerService.isPlaying(channel)) {
       AudioManagerService.play(channel);
       stop = $interval(function(){
@@ -16,14 +19,21 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     }
   }
   $scope.pause = function () {
+    if (!$scope.track){
+      return;
+    }
     if (AudioManagerService.isPlaying(channel)) {
       AudioManagerService.pause(channel);
       $interval.cancel(stop);
     }
   }
   $scope.stop = function () {
+    if (!$scope.track){
+      return;
+    }
     if (AudioManagerService.isPlaying(channel)) {
       AudioManagerService.stop(channel);
+      $scope.vm.progress = 0;
       $interval.cancel(stop);
     }
   }
@@ -31,5 +41,17 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
 
   }
 
+
+  $scope.$watch("vm.progress", function(){
+    if (!$scope.track){
+      return;
+    }
+    var newTime = ($scope.track.duration/1000) *($scope.vm.progress/ 100)
+    if (Math.abs(AudioManagerService.currentTime(channel) - newTime) < 1)
+    {
+      return;
+    }
+    AudioManagerService.currentTime(channel, newTime)
+  });
 }
 
