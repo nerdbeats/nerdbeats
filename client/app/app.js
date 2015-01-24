@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('nerdBeatsApp', [
+window.app = angular.module('nerdBeats', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap'
-])
-  .config(function ($routeProvider, $locationProvider) {
+]);
+
+window.app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
