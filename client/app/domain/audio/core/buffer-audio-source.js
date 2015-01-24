@@ -2,6 +2,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
   function BufferAudioSourceUnit() {
     this.playing = false;
     this.node = AudioContext.createBufferSource();
+    this.length = 0;
   }
 
   BufferAudioSourceUnit.prototype = new AudioUnit();
@@ -12,7 +13,11 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
 
   BufferAudioSourceUnit.prototype.src = function (buffer) {
     if (lodash.isObject(buffer)) {
+      if (this.isPlaying()) {
+        this.stop();
+      }
       this.node.buffer = buffer;
+      this.length = this.node.buffer.duration / 60;
     }
 
     return this.node.buffer;
@@ -34,7 +39,17 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     }
   };
 
-  BufferAudioSourceUnit.prototype.currentTime = function (position) {};
+  BufferAudioSourceUnit.prototype.currentTime = function (position) {
+    return 0;
+  };
+
+  BufferAudioSourceUnit.prototype.playbackRate = function (value) {
+    if (lodash.isNumber(value)) {
+      this.node.playbackRate.value = value;
+    }
+
+    return this.node.playbackRate.value;
+  };
 
   return BufferAudioSourceUnit;
 }]);
