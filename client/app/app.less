@@ -24,7 +24,7 @@
 // endinjector
 
 .square-button(@fg){
-  background:@color-grey-prime;
+  background:@color-grey-medium;
   color:@fg;
   border:2px solid @color-grey-light;
   width: 44px;
@@ -117,13 +117,31 @@ input,button,:focus{
     color: @color-grey-lightest;
     padding: 20px;
     button.btn-a{
-      .square-button(@color-cyan)
+      .square-button(@color-cyan);
     }
     button.btn-b{
-      .square-button(@color-red)
+      .square-button(@color-red);
     }
     button.btn-minus{
-      .square-button(@color-green)
+      .square-button(@color-green);
     }
+  }
+}
+
+.mixer{
+  background:@color-grey-prime;
+  button.btn-play{
+    .square-button(@color-green);
+  }
+  button.btn-pause{
+    .square-button(@color-yellow);
+  }
+  button.btn-stop{
+    .square-button(@color-pink);
+  }
+  button.btn-cue{
+    .square-button(@color-grey-lightest);
+    font-size:12px;
+    line-height:44px;
   }
 }
