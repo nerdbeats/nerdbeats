@@ -1,11 +1,11 @@
-app.directive('mixer', function () {
+app.directive('deck', function () {
   return {
-    templateUrl: 'app/modules/mixer/mixer.html',
+    templateUrl: 'app/modules/deck/deck.html',
     restrict: 'EA',
     scope: {
       channel: '@channel'
     },
-    controller: MixerCtrl,
+    controller: DeckCtrl,
     link: function (scope, element, attrs) {
     }
   };

@@ -1,0 +1,30 @@
+<section class="player">
+  <hearer>
+    <div class="row">
+      <div class="col-md-2">
+        {{channel}}
+      </div>
+      <div class="col-md-8">
+        {{track.title}}
+      </div>
+      <div class="col-md-1">
+        {{progressTime}}
+      </div>
+      <div class="col-md-2">
+        {{tempo}}
+      </div>
+    </div>
+  </hearer>
+  <div class="wave-progress">
+    <waveform width="500" height="200" innercolor="#333" track="track"></waveform>
+    <span slider ng-model="vm.progress" min=0 max=100></span>
+    <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical"></span>
+
+  </div>
+  <div class="row">
+    <button ng-click="play()">play</button>
+    <button ng-click="pause()">pause</button>
+    <button ng-click="stop()">stop</button>
+    <button ng-click="cue()">cue</button>
+  </div>
+</section>
