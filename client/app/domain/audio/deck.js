@@ -31,4 +31,6 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
     return this.node.gain.value;
   };
+
+  return Deck;
 }]);

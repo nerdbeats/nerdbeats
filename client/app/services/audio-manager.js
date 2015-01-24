@@ -22,11 +22,11 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
       return mx.fade(value);
     },
     play: function (deck) {
-      mx[deck].play();
+      mx.decks[deck].play();
       return this;
     },
     stop: function (deck) {
-      mx[deck].stop();
+      mx.decks[deck].stop();
       return this;
     }
   };

@@ -42,4 +42,5 @@ window.app.factory('Mixer', ['Lodash', 'AudioContext', 'AudioUnit', 'Deck', func
     return this.fadeValue;
   };
 
+  return Mixer;
 }]);

@@ -1,6 +1,6 @@
 window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext', 'AudioUnit', function ($window, lodash, AudioContext, AudioUnit) {
   function StreamAudioSourceUnit() {
-    this.node = ctx.createMediaElementSource(new $window.Audio());
+    this.node = AudioContext.createMediaElementSource(new $window.Audio());
   }
 
   StreamAudioSourceUnit.prototype = new AudioUnit();

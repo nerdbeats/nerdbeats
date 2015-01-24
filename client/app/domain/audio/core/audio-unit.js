@@ -18,4 +18,6 @@ window.app.factory('AudioUnit', ['EventEmitter', function (EventEmitter) {
       this.trigger('disconnected');
     }
   };
+
+  return AudioUnit;
 }]);
