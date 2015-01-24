@@ -14,6 +14,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
   };
 
   StreamAudioSourceUnit.prototype.play = function () {
+    debugger
     this.node.mediaElement.play();
     this.trigger('playing');
   };
