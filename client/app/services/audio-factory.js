@@ -23,9 +23,6 @@ window.app.service('AudioFactoryService', [
 
         return node;
       },
-      createBus: function (input) {
-        return new AudioBus(input);
-      },
       createGain: function () {
         return this.getContext().createGain();
       },
