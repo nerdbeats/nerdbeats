@@ -12,7 +12,8 @@
     "font-awesome": ">=4.3.0",
     "lodash": "~3.0.0",
     "angular-bootstrap": "~0.12.0",
-    "eventEmitter": "~4.2.11"
+    "eventEmitter": "~4.2.11",
+    "angular-bootstrap-slider": "~0.0.8"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
