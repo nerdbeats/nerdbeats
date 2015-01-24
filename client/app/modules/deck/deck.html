@@ -6,6 +6,8 @@
       effect list
       <div ng-repeat="effect in vm.effects">
           <effect-slider value="effect.value"></effect-slider >
+
+        <div bind-attr="{{effect.type}}"  value=""></div>
       </div>
     </div>
   </section>
