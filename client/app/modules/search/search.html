@@ -2,22 +2,24 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 search-pane">
 
+        <h3><span class="txt-blue">SEARCH</span> FOR MUSIC</h3>
 
-        <form class="navbar-form" role="search">
+        <form class="navbar-form sp-search" role="search">
           <div class="input-group">
             <input type="text" ng-model="vm.query" class="form-control" placeholder="Search" name="q">
 
             <div class="input-group-btn">
-              <button class="btn btn-default" ng-click="search()" type="submit"><i
-                class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default" ng-click="search()" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
             </div>
           </div>
         </form>
 
-
-        <ul>
+        <h3 class="h-underline pad-bot-">RESULTS</h3>
+        <ul class="track-list">
           <li ng-repeat="track in vm.tracks">
             <div class="row">
               <div class="col-md-2">{{track.user.username}}</div>

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic,400,700,300);
 @import '../bower_components/bootstrap/less/bootstrap.less';
 @import '../bower_components/font-awesome/less/font-awesome.less';
 @import '../assets/styles/palette';
@@ -21,3 +22,83 @@
 @import 'modules/mixer/mixer.less';
 @import 'modal/modal.less';
 // endinjector
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-weight:400;
+}
+
+ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  li{
+    padding:0;
+    margin:0;
+  }
+}
+
+input,button,:focus{
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.h-underline{
+  border-bottom:2px solid @color-grey-light;
+}
+
+.search-pane{
+  background: @color-grey-dark;
+  color:@color-grey-lightest;
+  padding:20px;
+
+  .sp-search{
+    width:100%;
+    padding:0;
+    input, button,:focus {
+      border-radius: 0;
+      background: @color-grey-prime;
+      border: none;
+      color:@color-grey-light;
+      height:36px;
+    }
+    input{
+      font-size:12px;
+      font-weight: 700;
+    }
+    button:focus{
+      border:1px solid @color-grey-prime;
+    }
+    .input-group{
+      width:100%;
+    }
+  }
+
+  h3{
+    font-style:italic;
+    font-size:18px;
+    font-weight:800;
+    margin:0;
+    padding:0;
+    .txt-blue{
+      color:@color-blue;
+    }
+  }
+  .track-list{
+    li{
+      padding:2px 0;
+      line-height:44px;
+    }
+    button{
+      background:@color-grey-prime;
+      color:@color-green;
+      border:2px solid @color-grey-light;
+      width: 44px;
+      height:44px;
+      line-height: 0;
+      font-size:30px;
+    }
+  }
+}
