@@ -18,10 +18,14 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     this.trigger('playing');
   };
 
-  BufferAudioSourceUnit.prototype.pause = function () {
+  BufferAudioSourceUnit.prototype.pause = function () {};
+
+  BufferAudioSourceUnit.prototype.stop = function () {
     this.node.stop(0);
     this.trigger('stopped');
   };
+
+  BufferAudioSourceUnit.prototype.seek = function (time) {};
 
   return BufferAudioSourceUnit;
 }]);

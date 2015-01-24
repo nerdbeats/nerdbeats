@@ -3,7 +3,7 @@ window.app.service('AudioLoaderService', function ($http, $q, SoundCloudService,
     getStream: function (id) {
       return SoundCloudService.stream(id).then(function (sound) {
         var unit = new StreamAudioSourceUnit();
-        unit.src(sound.src);
+        unit.src(sound.url);
         return unit;
       });
     },

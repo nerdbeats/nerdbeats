@@ -1,7 +1,4 @@
 app.directive('waveform', function () {
-
-
-
     return {
 
       scope:{
@@ -30,13 +27,6 @@ app.directive('waveform', function () {
           waveform.dataFromSoundCloudTrack(scope.track);
         })
 
-
-
-        //scope.$watch(attrs.ngWaveform, function (wave) {
-        //  if (wave) {
-        //    waveform.update({data: wave});
-        //  }
-        //});
       }
     }
   })
