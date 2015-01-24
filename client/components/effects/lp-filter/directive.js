@@ -1,10 +1,11 @@
-window.app.directive('DelayControl', function (ControlMapper) {
+window.app.directive('lpFilterEffect', function () {
   return {
     restrict: 'E',
-    templateUrl: 'components/effects/delay/template.html',
+    templateUrl: 'components/effects/lp-filter/template.html',
     link: function ($scope) {
+      var node = $scope.node;
       $scope.$watch('value', function (newValue) {
-        $scope.node.delayTime.value = newValue;
+        node.frequency.value = newValue;
       });
     },
     scope: {

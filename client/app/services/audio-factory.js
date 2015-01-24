@@ -25,33 +25,6 @@ window.app.factory('AudioFactoryService',
       createGain: function () {
         return this.getContext().createGain();
       },
-      createFilter: function (options) {
-        var node = this.getContext().createBiquadFilter();
-        options = options || {};
-
-        if (lodash.isString(options.type)) {
-
-          node.type = options.type;
-        }
-
-        if (lodash.isNumber(options.frequency)) {
-          node.frequency.value = options.frequency;
-        }
-
-        if (lodash.isNumber(options.detune)) {
-          node.detune.value = options.detune;
-        }
-
-        if (lodash.isNumber(options.q)) {
-          node.Q.value = options.q;
-        }
-
-        if (lodash.isNumber(options.gain)) {
-          node.gain.value = options.gain;
-        }
-
-        return node;
-      },
       createDubDelay: function (options) {
         var node = new DubDelay();
         options = options || {};
@@ -86,6 +59,51 @@ window.app.factory('AudioFactoryService',
         distortion.oversample = options.oversample;
 
         return node;
+      },
+      createFilter: function (options) {
+        var node = this.getContext().createBiquadFilter();
+        options = options || {};
+
+        if (lodash.isString(options.type)) {
+
+          node.type = options.type;
+        }
+
+        if (lodash.isNumber(options.frequency)) {
+          node.frequency.value = options.frequency;
+        }
+
+        if (lodash.isNumber(options.detune)) {
+          node.detune.value = options.detune;
+        }
+
+        if (lodash.isNumber(options.q)) {
+          node.Q.value = options.q;
+        }
+
+        if (lodash.isNumber(options.gain)) {
+          node.gain.value = options.gain;
+        }
+
+        return node;
+      },
+      createLPFilter: function () {
+        return this.createFilter({
+          frequency: 1000
+        });
+      },
+      createHPFilter: function () {
+        return this.createFilter({
+          type: 'highpass',
+          frequency: 500
+        });
+      },
+      createBPFilter: function () {
+        return this.createFilter({
+          type: 'bandpass',
+          frequency: 2500,
+          q: 50
+        });
       }
     };
   });

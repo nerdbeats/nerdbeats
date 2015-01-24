@@ -46,7 +46,7 @@ window.app.factory('AudioBusUnit', ['Lodash','AudioUnit', function (lodash, Audi
     this.trigger('insert:added', [newInsert]);
 
     if (lodash.isObject(this.output)) {
-      insert.connect(this.output);
+      newInsert.connect(this.output);
     }
   };
 
