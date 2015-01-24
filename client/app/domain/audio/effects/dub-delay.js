@@ -38,5 +38,5 @@ window.app.factory('DubDelayUnit', ['Lodash', 'AudioContext', 'AudioUnit', funct
     return this.feedback.gain.value;
   };
 
-  return AudioUnit;
+  return DubDelayUnit;
 }]);
