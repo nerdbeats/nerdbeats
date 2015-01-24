@@ -12,7 +12,7 @@ window.app.factory('Mixer', ['Lodash', 'AudioContext', 'AudioUnit', 'Deck', func
     };
 
     this.decks.a.connect(this.fader.left);
-    this.decks.a.connect(this.fader.right);
+    this.decks.b.connect(this.fader.right);
 
     this.fader.left.connect(this.node);
     this.fader.right.connect(this.node);
