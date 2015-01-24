@@ -25,8 +25,16 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
       mx.decks[deck].play();
       return this;
     },
+    pause: function (deck) {
+      mx.decks[deck].pause();
+      return this;
+    },
     stop: function (deck) {
       mx.decks[deck].stop();
+      return this;
+    },
+    seek: function (deck, time) {
+      mx.decks[deck].seek(time);
       return this;
     }
   };

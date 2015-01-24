@@ -20,7 +20,15 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
 
   StreamAudioSourceUnit.prototype.pause = function () {
     this.node.mediaElement.pause();
-    this.trigger('stopped');
+  };
+
+  StreamAudioSourceUnit.prototype.stop = function () {
+    this.node.mediaElement.pause();
+    this.seek(0.0);
+  };
+
+  StreamAudioSourceUnit.prototype.seek = function (time) {
+    this.node.mediaElement.currentTime = time;
   };
 
   return StreamAudioSourceUnit;
