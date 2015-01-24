@@ -29,7 +29,11 @@
         <span slider ng-model="channelA.high" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div>
+      <div class="nb-slider-label vol-slider">
+        <span class="sl-title">VOL</span>
+        <span class="sl-value txt-cyan">+ 2.0</span>
+      </div>
+      <div class="vol-vertical-slider">
         <span slider ng-model="channelA.vol" min=0 max=100 orientation="vertical" handle="square" tooltip="hide"></span>
       </div>
 
@@ -60,11 +64,12 @@
         <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
 
-      <div class="nb-slider-label">
+
+      <div class="nb-slider-label vol-slider">
         <span class="sl-title">VOL</span>
         <span class="sl-value txt-red">+ 2.0</span>
       </div>
-      <div class="nb-slider-holder">
+      <div class="vol-vertical-slider">
         <span slider ng-model="channelB.vol" min=0 max=100 orientation="vertical" handle="square" tooltip="hide"></span>
       </div>
 
