@@ -22,7 +22,6 @@
     <!-- Add your site or application content here -->
     <div ng-view=""></div>
 
-
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -42,10 +41,14 @@
     <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="app/config.js"></script>
+      <script src="app/domain/audio/core/audio-bus.js"></script>
+      <script src="app/domain/audio/core/audio-unit.js"></script>
       <script src="app/home/home.controller.js"></script>
       <script src="app/home/home.js"></script>
       <script src="app/modules/search/search.controller.js"></script>
       <script src="app/services/sound-cloud.js"></script>
+      <script src="app/shims/event-emitter.js"></script>
+      <script src="app/shims/lodash.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <!-- endinjector -->
