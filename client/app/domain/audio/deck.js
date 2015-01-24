@@ -9,8 +9,16 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
   Deck.prototype = new AudioUnit();
 
+  Deck.prototype.isPlaying = function () {
+    return this.bus.input().isPlaying();
+  };
+
   Deck.prototype.input = function (input) {
     if (lodash.isObject(input)) {
+      if (this.isPlaying()) {
+        this.stop();
+      }
+
       this.bus.input(input);
     }
 
@@ -18,16 +26,23 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   };
 
   Deck.prototype.play = function () {
-    this.bus.input().play();
+    if (!this.isPlaying()) {
+      this.bus.input().currentTime(this.startPosition);
+      this.bus.input().play();
+    }
   };
 
   Deck.prototype.stop = function () {
-    this.bus.input().stop();
-    this.bus.input().seek(this.startPosition);
+    if (this.isPlaying()) {
+      this.bus.input().stop();
+      this.bus.input().seek(this.startPosition);
+    }
   };
 
   Deck.prototype.pause = function () {
-    this.bus.input().pause();
+    if (this.isPlaying()) {
+      this.bus.input().pause();
+    }
   };
 
   Deck.prototype.volume = function (value) {
@@ -44,6 +59,10 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
     }
 
     return this.startPosition;
+  };
+
+  Deck.prototype.currentTime = function (value) {
+    return this.bus.input().currentTime(value);
   };
 
   return Deck;
