@@ -1,4 +1,4 @@
-MixerCtrl = function ($scope, $rootScope) {
+MixerCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService) {
 
   $scope.vm = {};
   $scope.vm.progress = 0;
@@ -15,18 +15,24 @@ MixerCtrl = function ($scope, $rootScope) {
       return;
     }
 
+      AudioLoaderService.getStream(track.id).then(function (stream) {
+        AudioManagerService.loadTrackTo(channel.toLowerCase(), stream);
+      });
+
     $scope.vm.track  = track;
 
   });
 
 
   $scope.play = function(){
+    AudioManagerService.play($scope.channel.toLocaleLowerCase());
 
   }
   $scope.pause = function(){
 
   }
   $scope.stop = function(){
+    AudioManagerService.stop($scope.channel.toLocaleLowerCase());
     console.log('stop');
   }
   $scope.cue = function(){

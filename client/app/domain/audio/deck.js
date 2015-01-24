@@ -17,11 +17,11 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   };
 
   Deck.prototype.play = function () {
-    this.node.start(0);
+    this.bus.input().play();
   };
 
   Deck.prototype.stop = function () {
-    this.node.stop(0);
+    this.bus.input().stop();
   };
 
   Deck.prototype.volume = function (value) {
@@ -31,4 +31,6 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
     return this.node.gain.value;
   };
+
+  return Deck;
 }]);
