@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic,400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800italic,400,700,300,800);
 @import '../bower_components/bootstrap/less/bootstrap.less';
 @import '../bower_components/font-awesome/less/font-awesome.less';
 @import '../assets/styles/palette';
@@ -63,6 +63,14 @@ input,button,:focus{
 }
 .txt-yellow{
   color: @color-yellow;
+}
+
+.txt-cyan{
+  color:@color-cyan;
+}
+
+.txt-red{
+  color:@color-red;
 }
 
 .h-underline{
@@ -162,46 +170,63 @@ input,button,:focus{
     text-align: center;
     font-style: italic;
   }
-.slider-horizontal {
-  .slider-handle {
-    position: absolute;
-    width: 20px;
-    height: 50px;
-    background-color: @color-grey-prime;
-    background-image: none;
-    -webkit-filter: none;
-    filter: none;
-    box-shadow: none;
-    opacity: 1;
-    border: 2px solid @color-grey-light;
-    top:-18px;
-  }
-  .slider-track{
-    position: absolute;
-    cursor: pointer;
+  .fs-title{
+    height:18px;
     background:@color-grey-prime;
-    background-image: none;
-    filter: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-    height:2px;
+    font-size:10px;
+    font-weight:800;
+    line-height:18px;
+    padding:0 6px;
   }
-  .slider-selection{
-    position: absolute;
-    background-color: @color-grey-prime;
-    background-image: none;
-    filter: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 0;
-    height:2px;
+  .fst-value{
+    float: right;
+  }
+  .frequency-slider{
+    height: 56px;
+    padding-top:18px;
+    border:2px solid @color-grey-prime;
+  }
+  .slider-horizontal {
+    width:100%;
+    .slider-handle {
+      position: absolute;
+      width: 20px;
+      height: 50px;
+      background-color: @color-grey-prime;
+      background-image: none;
+      -webkit-filter: none;
+      filter: none;
+      box-shadow: none;
+      opacity: 1;
+      border: 2px solid @color-grey-light;
+      top:-18px;
+    }
+    .slider-track{
+      position: absolute;
+      cursor: pointer;
+      background:@color-grey-prime;
+      background-image: none;
+      filter: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-radius: 0;
+      height:2px;
+    }
+    .slider-selection{
+      position: absolute;
+      background-color: @color-grey-prime;
+      background-image: none;
+      filter: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      border-radius: 0;
+      height:2px;
 
+    }
   }
-}
 
 }
 
