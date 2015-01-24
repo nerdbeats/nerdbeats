@@ -1,20 +1,20 @@
 <section class="player">
-  <hearer>
+  <header>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 channel">
         {{channel}}
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 channel-title">
         {{track.title}}
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 channel-progress">
         {{progressTime}}
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 channel-tempo">
         {{tempo}}
       </div>
     </div>
-  </hearer>
+  </header>
   <div class="wave-progress">
     <waveform width="500" height="200" innercolor="#333" track="track"></waveform>
     <span slider ng-model="vm.progress" min=0 max=100  handle="square"></span>

@@ -144,8 +144,21 @@ input,button,:focus{
   }
 }
 
+.console{
+  background:@color-grey-medium;
+}
+
 .player{
-  background:@color-grey-prime;
+
+  header{
+    background:@color-grey-prime;
+    .channel{
+      font-size:34px;
+      font-weight:700;
+      margin:0 12px;
+    }
+  }
+
   button.btn-play{
     .square-button(@color-green);
   }
