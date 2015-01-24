@@ -23,6 +23,17 @@
 @import 'modal/modal.less';
 // endinjector
 
+.square-button(@fg){
+  background:@color-grey-medium;
+  color:@fg;
+  border:2px solid @color-grey-light;
+  width: 44px;
+  height:44px;
+  line-height: 0;
+  font-size:24px;
+  font-weight:400;
+}
+
 body{
   font-family: 'Open Sans', sans-serif;
   font-weight:400;
@@ -45,60 +56,92 @@ input,button,:focus{
   box-shadow: none !important;
 }
 
+.txt-blue {
+  color: @color-blue;
+}
+
 .h-underline{
   border-bottom:2px solid @color-grey-light;
 }
 
-.search-pane{
-  background: @color-grey-dark;
-  color:@color-grey-lightest;
-  padding:20px;
+.search-play-drawer {
 
-  .sp-search{
-    width:100%;
-    padding:0;
-    input, button,:focus {
-      border-radius: 0;
-      background: @color-grey-prime;
-      border: none;
-      color:@color-grey-light;
-      height:36px;
+  li {
+    padding: 2px 0;
+    line-height: 44px;
+  }
+
+  h3 {
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0 0 5px 0;
+  }
+
+  .search-pane {
+    background: @color-grey-dark;
+    color: @color-grey-lightest;
+    padding: 20px;
+
+    .sp-search {
+      width: 100%;
+      padding: 0;
+      input, button, :focus {
+        border-radius: 0;
+        background: @color-grey-prime;
+        border: none;
+        color: @color-grey-light;
+        height: 36px;
+      }
+      input {
+        font-size: 12px;
+        font-weight: 700;
+      }
+      button:focus {
+        border: 1px solid @color-grey-prime;
+      }
+      .input-group {
+        width: 100%;
+      }
     }
-    input{
-      font-size:12px;
-      font-weight: 700;
-    }
-    button:focus{
-      border:1px solid @color-grey-prime;
-    }
-    .input-group{
-      width:100%;
+
+    button.btn-plus,
+    button.btn-minus {
+      .square-button(@color-green);
     }
   }
 
-  h3{
-    font-style:italic;
-    font-size:18px;
-    font-weight:800;
-    margin:0;
-    padding:0;
-    .txt-blue{
-      color:@color-blue;
+  .playlist-pane {
+    background: @color-grey-dark;
+    color: @color-grey-lightest;
+    padding: 20px;
+    button.btn-a{
+      .square-button(@color-cyan);
+    }
+    button.btn-b{
+      .square-button(@color-red);
+    }
+    button.btn-minus{
+      .square-button(@color-green);
     }
   }
-  .track-list{
-    li{
-      padding:2px 0;
-      line-height:44px;
-    }
-    button{
-      background:@color-grey-prime;
-      color:@color-green;
-      border:2px solid @color-grey-light;
-      width: 44px;
-      height:44px;
-      line-height: 0;
-      font-size:30px;
-    }
+}
+
+.mixer{
+  background:@color-grey-prime;
+  button.btn-play{
+    .square-button(@color-green);
+  }
+  button.btn-pause{
+    .square-button(@color-yellow);
+  }
+  button.btn-stop{
+    .square-button(@color-pink);
+  }
+  button.btn-cue{
+    .square-button(@color-grey-lightest);
+    font-size:12px;
+    line-height:44px;
   }
 }
