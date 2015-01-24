@@ -21,6 +21,9 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
     fade: function (value) {
       return mx.fade(value);
     },
+    isPlaying: function (deck) {
+      return mx.decks[deck].isPlaying();
+    },
     play: function (deck) {
       mx.decks[deck].play();
       return this;
@@ -33,9 +36,8 @@ window.app.service('AudioManagerService', function (AudioContext, Mixer) {
       mx.decks[deck].stop();
       return this;
     },
-    seek: function (deck, position) {
-      mx.decks[deck].seek(position);
-      return this;
+    currentPosition: function (deck, position) {
+      return mx.decks[deck].currentPosition(position);
     },
     cue: function (deck, position) {
       mx.decks[deck].cue(position);
