@@ -2,6 +2,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
   function BufferAudioSourceUnit() {
     this.playing = false;
     this.node = AudioContext.createBufferSource();
+    this.output = null;
     this.length = 0;
   }
 
@@ -34,8 +35,16 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
 
   BufferAudioSourceUnit.prototype.stop = function () {
     if (this.playing) {
+      var buffer = this.node.buffer;
       this.playing = false;
       this.node.stop(0);
+      this.node.disconnect();
+      this.node = AudioContext.createBufferSource();
+      this.node.buffer = buffer;
+
+      if (lodash.isObject(this.output)) {
+        this.node.connect(this.output);
+      }
     }
   };
 
@@ -49,6 +58,11 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     }
 
     return this.node.playbackRate.value;
+  };
+
+  BufferAudioSourceUnit.prototype.connect = function (target) {
+    this.output = target;
+    AudioUnit.prototype.connect.call(this, this.output);
   };
 
   return BufferAudioSourceUnit;
