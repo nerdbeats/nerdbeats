@@ -23,8 +23,8 @@ window.app.factory('ControlMapper', ['Lodash', 'ValueHelper', function (lodash, 
         if (lodash.isObject(map)) {
           value = newValue;
 
-          lodash.each(map, function (mapElement) {
-            helper.set(node, mapElement.target, mapElement.ratio * newValue);
+          lodash.each(map, function (ration, target) {
+            helper.set(node, target, ration * newValue);
           });
         }
       }
