@@ -20,7 +20,9 @@
   <body ng-app="nerdBeats">
 
     <!-- Add your site or application content here -->
-    <div ng-view=""></div>
+    <div ng-view="">
+
+    </div>
 
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
@@ -32,6 +34,7 @@
       <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/lodash/lodash.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/eventEmitter/EventEmitter.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -46,6 +49,8 @@
       <script src="app/home/home.controller.js"></script>
       <script src="app/home/home.js"></script>
       <script src="app/modules/search/search.controller.js"></script>
+      <script src="app/services/audio-context.js"></script>
+      <script src="app/services/audio-factory.js"></script>
       <script src="app/services/sound-cloud.js"></script>
       <script src="app/shims/event-emitter.js"></script>
       <script src="app/shims/lodash.js"></script>

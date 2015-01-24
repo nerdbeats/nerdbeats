@@ -5,7 +5,8 @@ window.app = angular.module('nerdBeats', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.bootstrap-slider'
 ]);
 
 window.app.config(function ($routeProvider, $locationProvider) {
