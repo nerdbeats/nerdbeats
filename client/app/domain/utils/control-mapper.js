@@ -1,7 +1,6 @@
-window.app.factory('ControlMapper', ['Lodash', function (lodash) {
+window.app.factory('ControlMapper', ['Lodash', 'ValueHelper', function (lodash, helper) {
   function ControlMapper() {
     var map, value, node;
-
 
     this.target = function (target) {
       if (lodash.isObject(target)) {
@@ -21,7 +20,13 @@ window.app.factory('ControlMapper', ['Lodash', function (lodash) {
 
     this.value = function (newValue) {
       if (lodash.isObject(newValue)) {
-        value = newValue;
+        if (lodash.isObject(map)) {
+          value = newValue;
+
+          lodash.each(map, function (mapElement) {
+            helper.set(node, mapElement.target, mapElement.ratio * newValue);
+          });
+        }
       }
 
       return value;

@@ -62,6 +62,31 @@ window.app.service('AudioFactoryService', [
         }
 
         return node;
+      },
+      createDistorion:function (options) {
+        var makeDistortionCurve = function () {
+            var k = typeof amount === 'number' ? amount : 50,
+              n_samples = this.getContext().sampleRate,
+              curve = new Float32Array(n_samples),
+              deg = Math.PI / 180,
+              i = 0,
+              x;
+            for ( ; i < n_samples; ++i ) {
+              x = i * 2 / n_samples - 1;
+              curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+            }
+            return curve;
+          };
+        var node = this.getContext().createWaveShaper();
+        options = lodash.defaults(options || {}, {
+          curve: 400,
+          oversample: '4x'
+        });
+
+        distortion.curve = makeDistortionCurve.call(this, options.curve);
+        distortion.oversample = options.oversample;
+
+        return node;
       }
     };
   });
