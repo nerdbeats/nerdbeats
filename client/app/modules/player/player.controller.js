@@ -10,7 +10,7 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService) {
 
   }
   $scope.pause = function () {
-
+    AudioManagerService.pause($scope.channel.toLocaleLowerCase());
   }
   $scope.stop = function () {
     AudioManagerService.stop($scope.channel.toLocaleLowerCase());
