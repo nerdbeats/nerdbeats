@@ -148,8 +148,31 @@ input,button,:focus{
   background:@color-grey-medium;
 }
 
-.player{
 
+.deck-a{
+  .player-head{
+    color:@color-cyan;
+  }
+  .slider-handle{
+    .grad-cyan;
+  }
+  .slider-selection{
+    background-color: @color-cyan!important;
+  }
+}
+.deck-b{
+  .player-head{
+    color:@color-red;
+  }
+  .slider-handle{
+    .grad-red;
+  }
+  .slider-selection{
+    background-color: @color-red!important;
+  }
+}
+
+.player{
   header{
     background:@color-grey-prime;
     .channel{
@@ -157,10 +180,68 @@ input,button,:focus{
       font-weight:700;
       margin:0 12px;
     }
+    .channel-title{
+      font-size:10px;
+      font-weight:300;
+      border-left:2px solid @color-grey-light;
+      padding: 6px 10px;
+      line-height: 28px;
+      height: 38px;
+      margin-top: 6px;
+    }
   }
 
   .wave-progress{
     border:2px solid @color-grey-prime;
+    height:168px;
+    padding-right:46px;
+    overflow:hidden;
+
+    .progress-slider{
+      position:relative;
+      top:-175px;
+      height: 6px;
+
+      .slider-horizontal {
+        width: 100%;
+        .slider-handle {
+          position: absolute;
+          width: 300px;
+          height: 164px;
+          box-shadow: none;
+          opacity: 1;
+          border: none;
+          top: 5px;
+          margin-left: -300px;
+        }
+        .slider-track {
+          position: absolute;
+          cursor: pointer;
+          background: @color-grey-prime;
+          background-image: none;
+          filter: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          border-radius: 0;
+          height: 0px;
+        }
+        .slider-selection {
+          position: absolute;
+
+          background-image: none;
+          filter: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 0;
+          height: 6px;
+
+        }
+      }
+    }
+
   }
 
   .player-buttons{
