@@ -1,11 +1,12 @@
 'use strict';
 
-window.app = angular.module('nerdBeats', [
+window.app = angular.module('nerdBeatsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.bootstrap-slider'
 ]);
 
 window.app.config(function ($routeProvider, $locationProvider) {

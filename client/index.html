@@ -22,6 +22,9 @@
     <!-- Add your site or application content here -->
     <div ng-view="">
 
+      <!-- it can be used as an element -->
+      <slider ng-model="sliders.sliderValue" min="testOptions.min" step="testOptions.step" max="testOptions.max" value="testOptions.value"></slider>
+
     </div>
 
     <!-- build:js({client,node_modules}) app/vendor.js -->
@@ -32,6 +35,9 @@
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+      <script src="bower_components/angular-bootstrap-slider/slider.js"></script>
+
       <script src="bower_components/lodash/lodash.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
@@ -42,9 +48,12 @@
     <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="app/config.js"></script>
+      <script src="app/domain/audio/core/audio-bus.js"></script>
       <script src="app/domain/audio/core/audio-unit.js"></script>
+      <script src="app/services/audio-context.js"></script>
       <script src="app/services/sound-cloud.js"></script>
       <script src="app/shims/event-emitter.js"></script>
+      <script src="app/shims/lodash.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <!-- endinjector -->
