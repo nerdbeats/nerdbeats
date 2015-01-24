@@ -299,6 +299,58 @@ input,button,:focus{
     }
   }
 
+  .fade-slider{
+    margin:30px 15px;
+
+    padding-top: 18px;
+    border: 2px solid @color-grey-prime;
+    border-top:none;
+    border-bottom:none;
+
+    .slider-horizontal {
+      width: 100%;
+      .slider-handle {
+        position: absolute;
+        width: 20px;
+        height: 50px;
+        background-color: @color-grey-prime;
+        background-image: none;
+        -webkit-filter: none;
+        filter: none;
+        box-shadow: none;
+        opacity: 1;
+        border: 2px solid @color-grey-light;
+        top: -18px;
+      }
+      .slider-track {
+        position: absolute;
+        cursor: pointer;
+        background: @color-grey-prime;
+        background-image: none;
+        filter: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        height: 2px;
+      }
+      .slider-selection {
+        position: absolute;
+        background-color: @color-cyan;
+        background-image: none;
+        filter: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-radius: 0;
+        height: 2px;
+
+      }
+    }
+
+  }
+
 }
 
 //SLIDER OVERRIDES
