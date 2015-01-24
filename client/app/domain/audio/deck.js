@@ -10,7 +10,8 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype = new AudioUnit();
 
   Deck.prototype.isPlaying = function () {
-    return this.bus.input().isPlaying();
+    var node = this.bus.input();
+    return node ? node.isPlaying() : false;
   };
 
   Deck.prototype.input = function (input) {
