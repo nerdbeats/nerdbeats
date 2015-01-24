@@ -15,7 +15,6 @@ window.app.service('AudioFactoryService', [
         return this.getContext().createBuffer(2, frameCount, sampleRate);
       },
       createBufferSource: function (buffer) {
-        debugger
         var node = this.getContext().createBufferSource();
 
         if (lodash.isObject(buffer)) {
