@@ -1,9 +1,9 @@
 window.app.service('AudioFactoryService', [
     'Lodash',
     'AudioContext',
-    'AudioBusUnit'
+    'DubDelay'
   ],
-  function (lodash, ctx, AudioBus) {
+  function (lodash, ctx, DubDelay) {
     return {
       getContext: function () {
         return ctx;
@@ -52,8 +52,8 @@ window.app.service('AudioFactoryService', [
 
         return node;
       },
-      createDelay: function (options) {
-        var node = this.getContext().createDelay();
+      createDubDelay: function (options) {
+        var node = new DubDelay();
         options = options || {};
 
         if (lodash.isNumber(options.delayTime)) {
