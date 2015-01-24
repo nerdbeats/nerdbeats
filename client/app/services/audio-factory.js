@@ -102,7 +102,7 @@ window.app.factory('AudioFactoryService',
         return this.createFilter({
           type: 'bandpass',
           frequency: 2500,
-          q: 50
+          q: 40
         });
       }
     };

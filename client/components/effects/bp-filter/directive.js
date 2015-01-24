@@ -6,6 +6,8 @@ window.app.directive('bpFilterEffect', function () {
       var node = $scope.node;
       $scope.$watch('value', function (newValue) {
         node.frequency.value = newValue;
+        node.Q.value = newValue / 100;
+        node.gain.value = newValue / 1000;
       });
     },
     scope: {
