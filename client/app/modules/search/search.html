@@ -1,5 +1,5 @@
 <div ng-controller="SearchCtrl">
-  <div class="container-fluid">
+  <div class="container-fluid search-play-drawer">
 
     <div class="row">
       <div class="col-md-6 search-pane">
@@ -18,8 +18,8 @@
           </div>
         </form>
 
-        <h3 class="h-underline pad-bot-">RESULTS</h3>
-        <ul class="track-list">
+        <h3 class="h-underline">RESULTS</h3>
+        <ul>
           <li ng-repeat="track in vm.tracks">
             <div class="row">
               <div class="col-md-2">{{track.user.username}}</div>
@@ -27,10 +27,10 @@
               <div class="col-md-2">{{track.bpm}}</div>
               <div class="col-md-2">{{track.genre}}</div>
               <div class="col-md-1">
-                <button ng-click="addToPlaylist(track)" ng-hide="isOnPlaylist(track)">
+                <button ng-click="addToPlaylist(track)" ng-hide="isOnPlaylist(track)" class="btn-plus">
                   +
                 </button>
-                <button ng-click="remFromPlaylist(track)" ng-show="isOnPlaylist(track)">
+                <button ng-click="remFromPlaylist(track)" ng-show="isOnPlaylist(track)" class="btn-minus">
                   -
                 </button>
               </div>
@@ -39,19 +39,19 @@
         </ul>
 
       </div>
-      <div class="col-md-6">
-        PLAYLIST
+      <div class="col-md-6 playlist-pane">
+        <h3 class="h-underline txt-blue">PLAYLIST</h3>
         <ul>
           <li ng-repeat="track in vm.playlist">
             <div class="row">
 
               <div class="col-md-1">
-                <button ng-click="addToMixer(track, 'A')">
+                <button ng-click="addToMixer(track, 'A')" class="btn-a">
                   A
                 </button>
               </div>
               <div class="col-md-1">
-                <button ng-click="addToMixer(track, 'B')">
+                <button ng-click="addToMixer(track, 'B')" class="btn-b">
                   B
                 </button>
               </div>
@@ -60,7 +60,7 @@
               <div class="col-md-1">{{track.bpm}}</div>
               <div class="col-md-2">{{track.genre}}</div>
               <div class="col-md-1">
-                <button ng-click="remFromPlaylist(track)">
+                <button ng-click="remFromPlaylist(track)" class="btn-minus">
                   -
                 </button>
 
