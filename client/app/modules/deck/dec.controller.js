@@ -10,7 +10,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     if ($scope.channel != channel) {
       return;
     }
-    AudioLoaderService.getBuffer(track.id).then(function (sound) {
+    AudioLoaderService.getStream(track.id).then(function (sound) {
       AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
       $scope.vm.track = track;
     });
