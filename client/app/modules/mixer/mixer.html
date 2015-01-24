@@ -14,7 +14,7 @@
       </div>
 
       <div class="fs-title">
-        <span class="fst-label">MED</span>
+        <span class="fst-label">MID</span>
         <span class="fst-value txt-cyan">- 5.0</span>
       </div>
       <div class="frequency-slider">
@@ -25,7 +25,6 @@
         <span class="fst-label">HIGH</span>
         <span class="fst-value txt-cyan">+ 3.0</span>
       </div>
-
       <div class="frequency-slider">
         <span slider ng-model="channelA.high" min=0 max=100 handle="square" tooltip="hide"></span>
       </div>
@@ -36,13 +35,6 @@
 
     </div>
     <div class="col-md-6 mixer-sliders">
-      <div class="fs-title">
-        <span class="fst-label">LOW</span>
-        <span class="fst-value txt-red">+ 2.0</span>
-      </div>
-      <div class="frequency-slider">
-        <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
-      </div>
 
       <div class="fs-title">
         <span class="fst-label">LOW</span>
@@ -53,7 +45,15 @@
       </div>
 
       <div class="fs-title">
-        <span class="fst-label">LOW</span>
+        <span class="fst-label">MID</span>
+        <span class="fst-value txt-red">+ 2.0</span>
+      </div>
+      <div class="frequency-slider">
+        <span slider ng-model="channelB.progress" min=0 max=100 handle="square" tooltip="hide"></span>
+      </div>
+
+      <div class="fs-title">
+        <span class="fst-label">HIGH</span>
         <span class="fst-value txt-red">+ 2.0</span>
       </div>
       <div class="frequency-slider">
