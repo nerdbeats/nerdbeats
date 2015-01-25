@@ -2,22 +2,47 @@
   <player channel="{{channel}}" , track="vm.track"/>
   <section class="effects-desk">
     <header>
+<<<<<<< HEAD
       <button ng-click="toggleEffectsGallery()" class="btn-add-effect">+ Add Effect</button>
       <div>
         <div ng-repeat="effect in vm.effects" class="effect-teaser">
           <div>{{effect.type}} <button ng-click="removeFilter($index)">x</button> </div>
+=======
+
+      <div class="row">
+        <button class="col-md-2"  ng-click="toggleEffectsGallery()" class="btn-add-effect">+ Add Effect</button>
+
+        <button class="col-md-1" ng-click="moveDown()">< </button>
+        <div class="col-md-8">
+          <div ng-repeat="effect in vm.effects" class="effect-teaser">
+            <div>{{effect.type}}
+              <button ng-click="removeFilter($index)">x</button>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+>>>>>>> a7e97db32407df3a938778c27dd19f9aa00e68c4
         </div>
-        <div class="clearfix"></div>
+        <button class="col-md-1" ng-click="moveUp()">> </button>
       </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a7e97db32407df3a938778c27dd19f9aa00e68c4
     </header>
 
     <div class="effects-gallery" ng-show="vm.showGallery">
       <div ng-repeat="effect in vm.effectsGallery">
+<<<<<<< HEAD
         <button ng-click="addEffect(effect.type)" class="btn-effect">{{effect.title}}</button>
       </div>
       <div class="footer-buttons">
         <button class="btn-use">USE</button>
         <button class="btn-close">CLOSE</button>
+=======
+
+        <button ng-class="getFilterClass(effect)" ng-click="addEffect(effect.type)">{{effect.title}}</button>
+>>>>>>> a7e97db32407df3a938778c27dd19f9aa00e68c4
       </div>
     </div>
     <div class="effects-list" ng-hide="vm.showGallery">

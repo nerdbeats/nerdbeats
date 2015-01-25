@@ -15,6 +15,15 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
   ];
   $scope.vm.effects = [];
 
+  $scope.moveUp = function(){
+
+    
+  }
+
+  $scope.moveDown = function(){
+
+  }
+
 
   var addToDeck = function (track, channel) {
     if ($scope.channel != channel) {
@@ -25,6 +34,9 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       $scope.vm.track = track;
     });
   }
+
+
+
 
   addToDeck({
     "kind": "track",
@@ -154,6 +166,12 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       $scope.vm.showGallery = !$scope.vm.showGallery;
     }
   };
+
+  $scope.getFilterClass = function(e){
+
+    var hasOnList = _.findWhere($scope.vm.effects, {type: e.type})
+    return hasOnList ? 'active' : 'none';
+  }
 
   $scope.removeFilter = function(index){
     AudioManagerService.removeEffectFrom($scope.channel, index);

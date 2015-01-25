@@ -24,10 +24,10 @@ MixerCtrl = function ($scope, AudioManagerService) {
   })
 
   $scope.$watch('channelA.low', function(){
-    AudioManagerService.midFreq('a', $scope.channelA.low);
+    AudioManagerService.midFreq('a', $scope.channelA.mid);
   })
   $scope.$watch('channelA.mid', function(){
-    AudioManagerService.hiFreq('a', $scope.channelA.mid);
+    AudioManagerService.hiFreq('a', $scope.channelA.high);
   })
   $scope.$watch('channelA.vol', function(){
     AudioManagerService.volumeOf('a', $scope.channelA.vol /100);
