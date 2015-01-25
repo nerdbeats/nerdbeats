@@ -37,6 +37,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       $scope.vm.track = track;
       $scope.busy = false;
     }).catch(function(){
+      toastr.warning('Oops! something went wrong. Please try with other track')
       $scope.busy = false;
     });
   }
