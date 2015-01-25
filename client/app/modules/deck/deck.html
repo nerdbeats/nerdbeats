@@ -50,7 +50,7 @@
         <div class="effects-teaser-holder">
           <div ng-repeat="effect in vm.effects" class="effect-teaser">
             <div>
-              {{effect.type}}
+              {{effect.title}}
               <button ng-click="removeFilter($index)">x</button>
             </div>
           </div>
@@ -64,7 +64,7 @@
     <div class="effects-gallery" ng-show="vm.showGallery">
       <div ng-repeat="effect in vm.effectsGallery">
 
-        <button ng-class="getFilterClass(effect)" ng-click="addEffect(effect.type)" class="btn-effect">
+        <button ng-class="getFilterClass(effect)" ng-click="addEffect(effect)" class="btn-effect">
           {{effect.title}}
         </button>
       </div>

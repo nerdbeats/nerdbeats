@@ -198,8 +198,8 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     $scope.vm.effects.splice(index, 1);
   };
 
-  $scope.addEffect = function (type) {
-    var unit, defaultValue = 0;
+  $scope.addEffect = function (effect) {
+    var unit, defaultValue = 0, type = effect.type;
 
     if (type === 'lp-filter') {
       unit = AudioFactoryService.createLPFilter();
@@ -238,6 +238,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       AudioManagerService.insertEffectTo($scope.channel, unit);
       $scope.vm.effects.push({
         type: type,
+        title: effect.title,
         value: defaultValue,
         node: unit
       });
