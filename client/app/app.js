@@ -4,7 +4,8 @@ window.app = angular.module('nerdBeats', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'ui.bootstrap-slider'
+  'ui.bootstrap-slider',
+  'ui.sortable'
 ]);
 
 window.app.config(function ($routeProvider, $locationProvider) {

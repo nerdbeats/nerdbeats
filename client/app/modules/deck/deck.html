@@ -33,7 +33,7 @@
     <div class="effects-gallery" ng-show="vm.showGallery">
       <div ng-repeat="effect in vm.effectsGallery">
 
-        <button ng-class="getFilterClass(effect)" ng-click="addEffect(effect.type)" class="btn-effect">
+        <button  ng-class="getFilterClass(effect)" ng-click="addEffect(effect.type)" class="btn-effect">
           {{effect.title}}
         </button>
       </div>
@@ -43,9 +43,9 @@
 
       </div>
     </div>
-    <div class="effects-list" ng-hide="vm.showGallery">
+    <div id="filter" as-sortable="vm.sortableOptions" ng-model="vm.effects"  class="effects-list" ng-hide="vm.showGallery">
 
-      <div ng-repeat="effect in vm.effects" class="effect-slider">
+      <div  data-as-sortable-item  ng-repeat="effect in vm.effects" class="effect-slider as-sortable-item">
         <effect type="effect.type" value="effect.value" node="effect.node"></effect>
       </div>
     </div>
