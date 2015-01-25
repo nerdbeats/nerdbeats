@@ -8,6 +8,7 @@ window.app.directive('chorusEffect', function () {
         node.delay(newValue / 10);
         node.rate(newValue);
         node.feedback(newValue);
+        node.bypass(newValue === 0);
       });
     },
     scope: {

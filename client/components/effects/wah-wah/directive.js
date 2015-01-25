@@ -11,7 +11,8 @@ window.app.directive('wahwahEffect', function () {
       $scope.$watch('value', function (newValue) {
         node.sensitivity(newValue);
         node.baseFrequency(freq + (newValue / 10));
-        node.sweep(sweep + (newValue / 10))
+        node.sweep(sweep + (newValue / 10));
+        node.bypass(newValue === 0);
       });
     },
     scope: {

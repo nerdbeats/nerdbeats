@@ -7,6 +7,7 @@ window.app.directive('hpFilterEffect', function () {
       node.q(10);
       $scope.$watch('value', function (newValue) {
         node.frequency(newValue);
+        node.bypass(newValue === 30);
       });
     },
     scope: {

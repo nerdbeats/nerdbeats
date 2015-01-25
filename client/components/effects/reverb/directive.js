@@ -8,6 +8,7 @@ window.app.directive('reverbEffect', function () {
       node.highCut(10000);
       $scope.$watch('value', function (newValue) {
         node.wetLevel(newValue);
+        node.bypass(newValue === 0);
       });
     },
     scope: {

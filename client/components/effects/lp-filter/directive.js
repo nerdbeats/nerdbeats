@@ -5,7 +5,8 @@ window.app.directive('lpFilterEffect', function () {
     link: function ($scope) {
       var node = $scope.node;
       $scope.$watch('value', function (newValue) {
-        node.frequency(newValue * 2);
+        node.frequency(newValue);
+        node.bypass(newValue === 5000);
       });
     },
     scope: {
