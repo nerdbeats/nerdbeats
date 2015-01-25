@@ -1,9 +1,40 @@
 <div class="deck">
 
   <div class="spinner" ng-show="busy">
-    spinner
     <div id="loader-7">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
     </div>
   </div>
 
@@ -40,14 +71,17 @@
       <div class="footer-buttons">
         <button style="visibility: hidden" class="btn-use">USE</button>
         <button class="btn-close" ng-click="closeGallery()">CLOSE</button>
-
       </div>
     </div>
-    <div id="filter" as-sortable="vm.sortableOptions" ng-model="vm.effects"  class="effects-list" ng-hide="vm.showGallery">
+    <div class="effects-list" ng-hide="vm.showGallery">
 
-      <div  data-as-sortable-item  ng-repeat="effect in vm.effects" class="effect-slider as-sortable-item">
-        <effect type="effect.type" value="effect.value" node="effect.node"></effect>
+      <div class="effect-slider">
+        <div ng-repeat="effect in vm.effects" class="effect-vertical-slider">
+          <div class="filler"></div>
+          <effect type="effect.type" value="effect.value" node="effect.node"></effect>
+        </div>
       </div>
+
     </div>
   </section>
 </div>
