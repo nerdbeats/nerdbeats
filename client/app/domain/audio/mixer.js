@@ -25,7 +25,8 @@ window.app.factory('Mixer', ['Lodash', 'AudioContext', 'AudioUnit', 'Deck', func
   }
 
   function Mixer() {
-    this.node = AudioContext.createChannelMerger();
+    this.node = AudioContext.createAnalyser();
+    this.merger = AudioContext.createChannelMerger();
     this.decks = {
       'a' : new Deck(),
       'b' : new Deck()
@@ -39,8 +40,10 @@ window.app.factory('Mixer', ['Lodash', 'AudioContext', 'AudioUnit', 'Deck', func
     this.decks.a.connect(this.fader.left);
     this.decks.b.connect(this.fader.right);
 
-    this.fader.left.connect(this.node);
-    this.fader.right.connect(this.node);
+    this.fader.left.connect(this.merger);
+    this.fader.right.connect(this.merger);
+
+    this.merger.connect(this.node);
 
     this.fadeValue = 0;
     this.previousValue = 0;

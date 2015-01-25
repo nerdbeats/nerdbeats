@@ -354,6 +354,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'vendor/**/*',
             'bower_components/**/fonts/**/*',
+            'bower_components/**/*.wav',
             'assets/images/{,*/}*.{webp}',
             'assets/fonts/**/*',
             'index.html'
@@ -498,8 +499,8 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.client %>/index.html': [
-              ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-               '!{.tmp,<%= yeoman.client %>}/app/app.js',
+              ['!{.tmp,<%= yeoman.client %>}/app/app.js',
+                '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
                '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
                '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js']
             ]

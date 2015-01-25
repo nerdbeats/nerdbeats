@@ -42,7 +42,7 @@
   <section class="effects-desk">
     <div class="row">
       <div class="effects-holder">
-        <button class="btn-add-effect" ng-click="toggleEffectsGallery()">+ Add Effect</button>
+        <button class="btn-add-effect" ng-class="{'active' : vm.effects.length > 0}" ng-click="toggleEffectsGallery()">+ Add Effect</button>
 
 
         <button class="btn-effect-scroll btn-effect-scroll-left" ng-click="moveDown()"><i
