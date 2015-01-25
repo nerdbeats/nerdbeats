@@ -13,7 +13,8 @@
     "lodash": "~3.0.0",
     "angular-bootstrap": "~0.12.0",
     "eventEmitter": "~4.2.11",
-    "angular-bootstrap-slider": "~0.0.8"
+    "angular-bootstrap-slider": "~0.0.8",
+    "tuna": "https://github.com/ziflex/tuna.git"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
