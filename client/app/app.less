@@ -328,15 +328,16 @@ input,button,:focus{
       font-weight:700;
       margin:0 12px;
     }
-    .channel-title,
-    .channel-progress{
-      font-size:10px;
-      font-weight:300;
+    .channel-title{
+      font-size: 10px;
+      font-weight: 300;
       padding: 6px 10px;
-      line-height: 28px;
       height: 38px;
       margin-top: 6px;
-      display:block;
+      .sub{
+        color:@color-grey-lightest;
+        display:block;
+      }
     }
     .channel-title{
       border-left:2px solid @color-grey-light;
@@ -347,6 +348,14 @@ input,button,:focus{
     }
     .channel-progress{
       width:50px;
+      font-size: 10px;
+      font-weight: 300;
+      padding: 6px 10px;
+      height: 38px;
+      margin-top: 6px;
+      .sub{
+        color:@color-grey-light;
+      }
     }
     .channel-tempo{
       font-size: 10px;
@@ -357,6 +366,9 @@ input,button,:focus{
       text-align:right;
       border-left:2px solid @color-grey-light;
       width:70px;
+      .sub{
+        color:@color-grey-light;
+      }
     }
   }
   .cue-marker{
