@@ -12,7 +12,8 @@ window.app.directive('phaserEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

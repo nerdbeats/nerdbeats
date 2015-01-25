@@ -10,7 +10,8 @@ window.app.directive('lpFilterEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

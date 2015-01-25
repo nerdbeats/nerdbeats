@@ -8,7 +8,7 @@ window.app.directive('effect', function ($compile) {
     },
     template: '<div></div>',
     link: function ($scope, $element) {
-      $element.append('<' + $scope.type + '-effect value="value" node="node"/>')
+      $element.append('<' + $scope.type + '-effect value="value" type="type" node="node"/>')
       $compile($element.contents())($scope);
     }
   };

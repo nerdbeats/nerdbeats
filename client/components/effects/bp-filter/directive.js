@@ -12,7 +12,8 @@ window.app.directive('bpFilterEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

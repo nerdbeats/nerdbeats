@@ -11,7 +11,8 @@ window.app.directive('hpFilterEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

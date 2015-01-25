@@ -10,7 +10,8 @@ window.app.directive('overdriveEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

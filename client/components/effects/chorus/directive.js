@@ -12,7 +12,8 @@ window.app.directive('chorusEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });
