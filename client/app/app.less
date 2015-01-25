@@ -766,7 +766,8 @@ input,button,:focus{
     border: 2px solid @color-grey-prime;
 
     .slider-horizontal {
-      width: 100%;
+      width: 58px;
+      left: 12px;
       .slider-handle {
         position: absolute;
         width: 20px;
@@ -790,6 +791,15 @@ input,button,:focus{
         box-shadow: none;
         border-radius: 0;
         height: 2px;
+        &:before{
+          content:"";
+          position:absolute;
+          height:2px;
+          width:83px;
+          background:@color-grey-prime;
+          top:0px;
+          left:-13px;
+        }
       }
       .slider-selection {
         position: absolute;
@@ -912,8 +922,27 @@ input,button,:focus{
     border-top:none;
     border-bottom:none;
 
+    .l-color{
+      height:2px;
+      width:14px;
+      background:@color-cyan;
+      margin-top:0px;
+      position:absolute;
+    }
+
+    .r-color{
+      height:2px;
+      width:14px;
+      background:@color-red;
+      right:16px;
+      position:absolute;
+
+    }
+
     .slider-horizontal {
-      width: 100%;
+      width: 172px;
+      left:13px;
+      top:-6px;
       .slider-handle {
         position: absolute;
         width: 20px;
@@ -930,7 +959,7 @@ input,button,:focus{
       .slider-track {
         position: absolute;
         cursor: pointer;
-        background: @color-red-dark;
+        background: @color-red;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
@@ -940,7 +969,7 @@ input,button,:focus{
       }
       .slider-selection {
         position: absolute;
-        background-color: @color-cyan-dark;
+        background-color: @color-cyan;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
