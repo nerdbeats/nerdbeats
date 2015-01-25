@@ -30,7 +30,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     if ($scope.channel != channel) {
       return;
     }
-    AudioLoaderService.getStream(track.id).then(function (sound) {
+    AudioLoaderService.getBuffer(track.id).then(function (sound) {
       AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
       $scope.vm.track = track;
     });
@@ -175,12 +175,12 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
     var hasOnList = _.findWhere($scope.vm.effects, {type: e.type})
     return hasOnList ? 'active' : 'none';
-  }
+  };
 
   $scope.removeFilter = function(index){
     AudioManagerService.removeEffectFrom($scope.channel, index);
     $scope.vm.effects.splice(index, 1);
-  }
+  };
 
   $scope.addEffect = function (type) {
     var unit, defaultValue = 0;

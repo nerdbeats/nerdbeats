@@ -6,12 +6,12 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
     this.lf = AudioContext.createBiquadFilter();
     this.lf.type = 'lowshelf';
-    this.lf.frequency.value = 200;
+    this.lf.frequency.value = 250;
 
     this.mf = AudioContext.createBiquadFilter();
     this.mf.type = 'peaking';
-    this.mf.frequency.value = 800;
-    this.mf.Q.value = 20;
+    this.mf.frequency.value = 1500;
+    this.mf.Q.value = 10;
 
     this.hf = AudioContext.createBiquadFilter();
     this.hf.type = 'highshelf';
@@ -19,7 +19,8 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
 
     this.bus.connect(this.lf);
     this.lf.connect(this.mf);
-    this.mf.connect(this.node);
+    this.mf.connect(this.hf);
+    this.hf.connect(this.node);
   }
 
   Deck.prototype = new AudioUnit();
@@ -44,7 +45,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype.play = function () {
     if (!this.isPlaying()) {
       if (this.startPosition){
-        this.bus.input().currentTime(this.startPosition);
+        this.bus.input().currentTime(this.startPosition); //cue
       }
       this.bus.input().play();
     }
@@ -53,7 +54,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype.stop = function () {
     if (this.isPlaying()) {
       this.bus.input().stop();
-      this.bus.input().currentTime(this.startPosition || 0);
+      this.bus.input().currentTime(this.startPosition || 0); //cue
     }
   };
 

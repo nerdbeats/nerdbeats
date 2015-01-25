@@ -1,26 +1,24 @@
 <div class="deck">
-  <player channel="{{channel}}" track="vm.track"> </player>
-  <article class="effects-desk">
-    <header>
-
+  <player channel="{{channel}}" , track="vm.track"></player>
+  <section class="effects-desk">
       <div class="row">
-        <button class="col-md-2" ng-click="toggleEffectsGallery()" class="btn-add-effect">+ Add Effect</button>
+        <div class="effects-holder">
+          <button class="btn-add-effect" ng-click="toggleEffectsGallery()">+ Add Effect</button>
 
-        <button class="col-md-1" ng-click="moveDown()">left</button>
-        <div class="col-md-8">
-          <div ng-repeat="effect in vm.effects" class="effect-teaser">
-            <div>{{effect.type}}
-              <button ng-click="removeFilter($index)">x</button>
+
+            <button class="btn-effect-scroll btn-effect-scroll-left" ng-click="moveDown()"><i class="fa fa-chevron-left"></i></button>
+            <div class="effects-teaser-holder">
+              <div ng-repeat="effect in vm.effects" class="effect-teaser">
+                <div>
+                  {{effect.type}}
+                  <button ng-click="removeFilter($index)">x</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="clearfix"></div>
+            <button class="btn-effect-scroll btn-effect-scroll-right" ng-click="moveUp()"><i class="fa fa-chevron-right"></i></button>
 
-        </div>
-        <button class="col-md-1" ng-click="moveUp()">right</button>
       </div>
-
-
-    </header>
+    </div>
 
     <div class="effects-gallery" ng-show="vm.showGallery">
       <div ng-repeat="effect in vm.effectsGallery">
@@ -41,6 +39,6 @@
         <effect type="effect.type" value="effect.value" node="effect.node"></effect>
       </div>
     </div>
-  </article>
+  </section>
 </div>
 

@@ -160,10 +160,10 @@ input,button,:focus{
   .player-head{
     color:@color-cyan;
   }
-  .slider-handle{
+  .progress-slider .slider-handle{
     .grad-cyan;
   }
-  .slider-selection{
+  .progress-slider .slider-selection{
     background-color: @color-cyan!important;
   }
 }
@@ -174,10 +174,10 @@ input,button,:focus{
   .player-head{
     color:@color-red;
   }
-  .slider-handle{
+  .progress-slider .slider-handle{
     .grad-red;
   }
-  .slider-selection{
+  .progress-slider .slider-selection{
     background-color: @color-red!important;
   }
 }
@@ -252,6 +252,82 @@ input,button,:focus{
       }
     }
 
+
+    .temp-slider-container{
+      position: relative;
+      top: -174px;
+      left: 500px;
+      .btn-tempo{
+        background:none;
+        border:none;
+        color:@color-grey-light;
+        font-size:16px;
+        position: relative;
+        padding: 6px 5px;
+        left:-3px;
+      }
+    }
+
+    .tempo-slider{
+      .slider-vertical {
+        height: 94px;
+        width: 8px;
+        left:0;
+        .slider-handle {
+          position: absolute;
+          width: 40px;
+          height: 20px;
+          left:-14px;
+          margin-top:-10px;
+          background-color: @color-grey-prime;
+          background-image: none;
+          -webkit-filter: none;
+          filter: none;
+          box-shadow: none;
+          opacity: 1;
+          border: 2px solid @color-grey-light;
+          top: -18px;
+        }
+        .slider-track {
+          width: 2px;
+          height: 100%;
+          margin-left: 0;
+          left: 10px;
+          top: 0;
+
+          position: absolute;
+          cursor: pointer;
+          background:@color-grey-dark;
+          background-image: none;
+          filter: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 0;
+        }
+        .slider-selection {
+          left: 0;
+          top: 0;
+          bottom: 0;
+
+          position: absolute;
+          background: @color-grey-dark;
+          background-image: none;
+          filter: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 0;
+
+        }
+      }
+    }
+
+
   }
 
   .player-buttons{
@@ -277,11 +353,44 @@ input,button,:focus{
 }
 
 .deck{
+  .effects-holder{
+    margin-left:15px;
+    margin-right:15px;
+  }
   .btn-add-effect{
     .square-button(@color-green);
     width:120px;
     font-size:12px;
     font-weight:400;
+    margin-right:2px;
+  }
+
+  .btn-effect-scroll{
+    float:left;
+    .square-button(@color-grey-light);
+  }
+
+  .effects-teaser-holder{
+    width: 326px;
+    float:left;
+    overflow:hidden;
+    height:44px;
+  }
+
+  .effect-teaser{
+    border:2px solid @color-grey-light;
+    height:44px;
+    line-height: 30px;
+    font-size:10px;
+    font-weight:400;
+    float: left;
+    padding-left:8px;
+    margin:0 1px;
+    button {
+      background:none;
+      border:none;
+      font-size:18px;
+    }
   }
 
   .effects-gallery{
