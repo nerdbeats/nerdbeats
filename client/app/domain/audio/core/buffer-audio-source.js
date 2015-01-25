@@ -44,15 +44,14 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
 
   BufferAudioSourceUnit.prototype.pause = function () {
     if (this.playing) {
-      this.state = 'paused';
       this.stop();
       this.offset = this.currentTime();
+      this.state = 'paused';
     }
   };
 
   BufferAudioSourceUnit.prototype.stop = function () {
     if (this.playing) {
-      this.state = 'stopped';
       var buffer = this.node.buffer;
       this.playing = false;
       this.node.stop(0);
@@ -64,7 +63,11 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
       if (lodash.isObject(this.output)) {
         this.connect(this.output);
       }
+    } else {
+      this.offset = 0;
     }
+
+    this.state = 'stopped';
   };
 
   BufferAudioSourceUnit.prototype.currentTime = function (position) {
