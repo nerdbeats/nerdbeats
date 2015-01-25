@@ -1,10 +1,6 @@
 .search-pane, .playlist-pane{
   height: 468px;
   font-size:14px;
-  button{
-    height:30px;
-    width:30px;
-  }
 }
 
 
@@ -12,8 +8,21 @@
   height: 332px;
   overflow-y: scroll;
   overflow-x: hidden;
+  .row{
+    margin-top:5px;
+    margin-bottom:5px;
+  }
   li{
-    margin-right: 34px;
+    margin-right: 5px;
+    line-height:20px!important;
+    border-bottom:1px solid @color-grey-prime;
+    padding-top:5px;
+    padding-bottom:5px;
+
+    button{
+      width:30px!important;
+      height:30px!important;
+    }
   }
 }
 
@@ -24,7 +33,17 @@
   height: 408px;
   overflow-y: scroll;
   overflow-x: hidden;
+  .row{
+    margin-top:5px;
+    margin-bottom:5px;
+  }
   li{
     margin-right: 34px;
+    line-height:20px!important;
+    border-bottom:1px solid @color-grey-prime;
+    button{
+      width:30px!important;
+      height:30px!important;
+    }
   }
 }
