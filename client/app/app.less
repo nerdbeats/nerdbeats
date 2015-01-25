@@ -763,10 +763,12 @@ input,button,:focus{
       display: block;
       height: 36px;
       position: absolute;
-      width: 78px;
+      width: 76px;
       margin-top: 200px;
-      margin-left: 2px;
+      margin-left: 3px;
       background:@color-green-dark;
+      border:2px solid @color-green;
+      border-top:0;
     }
     .slider-vertical {
       height: 238px;
@@ -774,10 +776,10 @@ input,button,:focus{
       left:0;
       .slider-handle {
         position: absolute;
-        width: 78px;
+        width: 76px;
         height: 36px;
-        left: 5px;
-        margin-top: 0px;
+        left: 3px;
+        margin-top: 0;
         background-color: @color-grey-prime;
         background-image: none;
         -webkit-filter: none;
@@ -786,13 +788,27 @@ input,button,:focus{
         opacity: 1;
         border: 2px solid @color-grey-light;
         top: -18px;
+        &:before{
+          content: " ";
+          position: absolute;
+          top: 36px;
+          left: -2px;
+          width:76px;
+          border-bottom: 2px solid @color-green;
+        }
+        &:after{
+          content: " ";
+          position: absolute;
+          top: 34px;
+          left: -2px;
+          width:76px;
+          border-bottom: 2px solid @color-grey-dark;
+        }
       }
       .slider-track {
-        width: 100%;
+        width: 76px;
         height: 201px;
-        margin-left: 0;
-        border-left:2px solid @color-grey-medium;
-        border-right:2px solid @color-grey-medium;
+        margin-left: 3px;
         left: 0;
         top: 0;
 
@@ -807,10 +823,13 @@ input,button,:focus{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border-radius: 0;
+        border:2px solid @color-green;
+        border-top:none;
+        border-bottom:none;
       }
       .slider-selection {
-        width: 100%;
-        left: 0;
+        width: 78px;
+        left: -2px;
         top: 0;
         bottom: 0;
 
@@ -824,7 +843,7 @@ input,button,:focus{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border-radius: 0;
-
+        border:2px solid @color-grey-dark;
       }
     }
   }
