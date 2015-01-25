@@ -3,6 +3,7 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
   $scope.vm = {};
   $scope.vm.progress = 0;
   $scope.vm.time = "00:00";
+  $scope.vm.timeRemaining = "00:00";
   $scope.vm.tempo = 1;
   $scope.vm.tempoOffset = 0;
   $scope.vm.cuePosition = null;
@@ -19,12 +20,10 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
       stop = $interval(function(){
         $scope.vm.progress = (AudioManagerService.currentTime(channel) / ($scope.track.duration/1000)) * 100;
         $scope.vm.time = secondsToTime(AudioManagerService.currentTime(channel));
+        $scope.vm.timeRemaining = secondsToTime(($scope.track.duration / 1000) - AudioManagerService.currentTime(channel));
       }, 500)
     }
-  }
-
-
-
+  };
 
   function secondsToTime(secs)
   {
@@ -127,12 +126,12 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     $scope.vm.state = value;
   });
 
-  $rootScope.$on('track:loaded', function (e, ch) {
-    console.log(ch);
+  $rootScope.$on('track:loaded', function (e, ch, track) {
     if (channel === ch) {
       $interval.cancel(stop);
       $scope.vm.progress = 0;
       $scope.vm.time = "00:00";
+      $scope.vm.timeRemaining = secondsToTime((track.duration / 1000));
     }
   });
 }

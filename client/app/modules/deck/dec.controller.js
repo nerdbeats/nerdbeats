@@ -32,7 +32,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     $scope.busy = true;
     AudioLoaderService.getBuffer(track.id).then(function (sound) {
       AudioManagerService.loadTrackTo(channel, {id: track.id, source: sound});
-      $rootScope.$emit('track:loaded', channel);
+      $rootScope.$emit('track:loaded', channel, track);
       $scope.vm.track = track;
       $scope.busy = false;
     }).catch(function(){
@@ -233,7 +233,6 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     }
 
     if (unit) {
-      //TODO: remember effects position to be able remove it or change the order
       AudioManagerService.insertEffectTo($scope.channel, unit);
       $scope.vm.effects.push({
         type: type,
