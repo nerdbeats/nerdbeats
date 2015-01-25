@@ -451,7 +451,7 @@ input,button,:focus{
 
   .effects-gallery{
     margin-top:10px;
-    padding:10px;
+    padding:10px 32px 10px 32px;
     background:@color-grey-dark;
     display:block;
     height:350px;
@@ -466,13 +466,17 @@ input,button,:focus{
       padding-left:10px;
     }
     .footer-buttons{
-      float:left;
-      margin-left:5px;
+      display:block;
+      text-align:center;
+      margin:5px;
+      position:relative;
+      top:7px;
       .btn-use{
         .square-button(@color-green);
         font-size:14px;
         font-weight: 700;
         width:140px;
+        display:none;
       }
       .btn-close{
         .square-button(@color-pink);
@@ -659,16 +663,25 @@ input,button,:focus{
     height: 242px;
     padding-top: 0;
     border: 2px solid @color-grey-prime;
+    .filler {
+      display: block;
+      height: 36px;
+      position: absolute;
+      width: 78px;
+      margin-top: 200px;
+      margin-left: 2px;
+      background:@color-green-dark;
+    }
     .slider-vertical {
       height: 238px;
       width: 100%;
       left:0;
       .slider-handle {
         position: absolute;
-        width: 86px;
+        width: 78px;
         height: 36px;
-        left:0px;
-        margin-top:-5px;
+        left: 5px;
+        margin-top: 0px;
         background-color: @color-grey-prime;
         background-image: none;
         -webkit-filter: none;
@@ -680,7 +693,7 @@ input,button,:focus{
       }
       .slider-track {
         width: 100%;
-        height: 100%;
+        height: 201px;
         margin-left: 0;
         border-left:2px solid @color-grey-medium;
         border-right:2px solid @color-grey-medium;
