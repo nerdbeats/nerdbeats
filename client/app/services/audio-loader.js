@@ -18,6 +18,8 @@ window.app.factory('AudioLoaderService', function ($http, $q, SoundCloudService,
             var unit = new BufferAudioSourceUnit();
             unit.src(buffer);
             def.resolve(unit);
+          }, function(e){
+            def.reject(e);
           });
         } else {
           def.reject(err);
