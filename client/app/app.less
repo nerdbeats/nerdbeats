@@ -262,7 +262,16 @@ input,button,:focus{
   .effect-vertical-slider{
     .filler,
     .slider-track{
-      background: @color-cyan-dark;
+      background:@color-fader-i-blue;
+    }
+    .slider-track{
+      border:2px solid @color-fader-o-blue;
+    }
+    .filler{
+      border:2px solid @color-fader-o-blue;
+    }
+    .slider-handle:before{
+      border:1px solid @color-fader-o-blue;
     }
   }
 }
@@ -285,7 +294,16 @@ input,button,:focus{
   .effect-vertical-slider{
     .filler,
     .slider-track{
-      background: @color-red-dark;
+      background:@color-fader-i-pink;
+    }
+    .slider-track{
+      border:2px solid @color-fader-o-pink;
+    }
+    .filler{
+      border:2px solid @color-fader-o-pink;
+    }
+    .slider-handle:before{
+      border:1px solid @color-fader-o-pink;
     }
   }
 }
@@ -602,33 +620,32 @@ input,button,:focus{
 
   .effect-vertical-slider {
     height: 242px;
-    width: 92px;
     padding-top: 0;
     border: 2px solid @color-grey-prime;
     float:left;
     margin-right:20px;
+    width:100px;
     .filler{
-      display:block;
-      height:36px;
-      position:absolute;
-      //background:@color-green;
-      width:84px;
-      margin-top:200px;
-      margin-left:2px;
+      display: block;
+      height: 36px;
+      position: absolute;
+      width: 90px;
+      margin-top: 200px;
+      margin-left: 3px;
+      //background:@color-fader-i-green;
+      //border:2px solid @color-fader-o-green;
+      border-top:0;
     }
     .slider-vertical {
       height: 183px;
       width: 100%;
       left:0;
-      .tooltip{
-        display:none;
-      }
       .slider-handle {
         position: absolute;
-        width: 86px;
+        width: 90px;
         height: 36px;
-        left: 4px;
-        margin-top: 0px;
+        left: 3px;
+        margin-top: -5px;
         background-color: @color-grey-prime;
         background-image: none;
         -webkit-filter: none;
@@ -637,14 +654,27 @@ input,button,:focus{
         opacity: 1;
         border: 2px solid @color-grey-light;
         top: -18px;
-        border-radius: 0;
+        &:before{
+          content: " ";
+          position: absolute;
+          top: 36px;
+          left: -2px;
+          width:90px;
+          //border-bottom: 2px solid @color-fader-o-green;
+        }
+        &:after{
+          content: " ";
+          position: absolute;
+          top: 34px;
+          left: -2px;
+          width:90px;
+          border-bottom: 2px solid @color-grey-dark;
+        }
       }
       .slider-track {
-        width: 100%;
-        height: 100%;
-        margin-left: 0;
-        border-left:2px solid @color-grey-medium;
-        border-right:2px solid @color-grey-medium;
+        width: 90px;
+        height: 183px;
+        margin-left: 3px;
         left: 0;
         top: 0;
 
@@ -659,10 +689,13 @@ input,button,:focus{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border-radius: 0;
+        //border:2px solid @color-fader-o-green;
+        border-top:none;
+        border-bottom:none;
       }
       .slider-selection {
-        width: 100%;
-        left: 0;
+        width: 94px;
+        left: -2px;
         top: 0;
         bottom: 0;
 
@@ -676,7 +709,7 @@ input,button,:focus{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border-radius: 0;
-
+        border:2px solid @color-grey-dark;
       }
     }
   }
@@ -766,8 +799,8 @@ input,button,:focus{
       width: 76px;
       margin-top: 200px;
       margin-left: 3px;
-      background:@color-green-dark;
-      border:2px solid @color-green;
+      background:@color-fader-i-green;
+      border:2px solid @color-fader-o-green;
       border-top:0;
     }
     .slider-vertical {
@@ -779,7 +812,7 @@ input,button,:focus{
         width: 76px;
         height: 36px;
         left: 3px;
-        margin-top: 0;
+        margin-top: -5px;
         background-color: @color-grey-prime;
         background-image: none;
         -webkit-filter: none;
@@ -794,7 +827,7 @@ input,button,:focus{
           top: 36px;
           left: -2px;
           width:76px;
-          border-bottom: 2px solid @color-green;
+          border-bottom: 2px solid @color-fader-o-green;
         }
         &:after{
           content: " ";
@@ -814,7 +847,7 @@ input,button,:focus{
 
         position: absolute;
         cursor: pointer;
-        background:@color-green-dark;
+        background:@color-fader-i-green;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
@@ -823,7 +856,7 @@ input,button,:focus{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border-radius: 0;
-        border:2px solid @color-green;
+        border:2px solid @color-fader-o-green;
         border-top:none;
         border-bottom:none;
       }
