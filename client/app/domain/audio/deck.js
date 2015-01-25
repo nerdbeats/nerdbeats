@@ -108,5 +108,13 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
     return this.hf.gain.value;
   };
 
+  Deck.prototype.tempo = function (value) {
+    if (this.bus.input()) {
+      return this.bus.input().tempo(value);
+    }
+
+    return 1;
+  };
+
   return Deck;
 }]);

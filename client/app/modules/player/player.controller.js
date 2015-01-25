@@ -3,7 +3,7 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
   $scope.vm = {};
   $scope.vm.progress = 0;
   $scope.vm.time = "00:00";
-  $scope.vm.tempo = 0;
+  $scope.vm.tempo = 1;
   var stop ;
   var channel = $scope.channel.toLocaleLowerCase();
 
@@ -75,5 +75,9 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     }
     AudioManagerService.currentTime(channel, newTime)
   });
+
+  $scope.$watch('vm.tempo', function () {
+    AudioManagerService.tempo(channel, $scope.vm.tempo); // normal value is 1
+  })
 }
 

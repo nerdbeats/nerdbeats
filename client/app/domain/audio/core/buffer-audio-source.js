@@ -1,4 +1,4 @@
-window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUnit', function (lodash, AudioContext, AudioUnit) {
+window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUnit', '$timeout', function (lodash, AudioContext, AudioUnit, $timeout) {
   function BufferAudioSourceUnit() {
     this.playing = false;
     this.paused = false;
@@ -7,6 +7,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     this.length = 0;
     this.startedAt = 0;
     this.offset = 0;
+    this.playbackRate = 1;
   }
 
   BufferAudioSourceUnit.prototype = new AudioUnit();
@@ -55,6 +56,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
       this.node.disconnect();
       this.node = AudioContext.createBufferSource();
       this.node.buffer = buffer;
+      this.node.playbackRate.value = this.playbackRate;
 
       if (lodash.isObject(this.output)) {
         this.node.connect(this.output);
@@ -75,8 +77,9 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     return this.node.context.currentTime - this.startedAt;
   };
 
-  BufferAudioSourceUnit.prototype.playbackRate = function (value) {
+  BufferAudioSourceUnit.prototype.tempo = function (value) {
     if (lodash.isNumber(value)) {
+      this.playbackRate = value;
       this.node.playbackRate.value = value;
     }
 
