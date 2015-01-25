@@ -55,6 +55,9 @@ window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
     },
     hiFreq: function (deck, value) {
       return mx.decks[normalize(deck)].highFrequency(value);
+    },
+    tempo: function (deck, value) {
+      return mx.decks[normalize(deck)].tempo(value);
     }
   };
 });

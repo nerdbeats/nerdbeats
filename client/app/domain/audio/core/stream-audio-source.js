@@ -52,7 +52,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
     return this.node.mediaElement.currentTime;
   };
 
-  StreamAudioSourceUnit.prototype.playbackRate = function (value) {
+  StreamAudioSourceUnit.prototype.tempo = function (value) {
     return 0;
   };
 
