@@ -30,12 +30,11 @@
       <div class="footer-buttons">
         <button style="visibility: hidden" class="btn-use">USE</button>
         <button class="btn-close" ng-click="closeGallery()">CLOSE</button>
-
       </div>
     </div>
     <div class="effects-list" ng-hide="vm.showGallery">
 
-      <div ng-repeat="effect in vm.effects" class="effect-slider">
+      <div ng-repeat="effect in vm.effects" class="effect-vertical-slider">
         <effect type="effect.type" value="effect.value" node="effect.node"></effect>
       </div>
     </div>
