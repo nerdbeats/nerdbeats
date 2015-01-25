@@ -10,7 +10,7 @@
         <span class="sl-value txt-cyan" ng-bind="channelA.low"></span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelA.low" min=-100 max=100 handle="square" tooltip="hide"  ></span>
+        <span slider ng-model="channelA.low" min="-50" max="50" handle="square" tooltip="hide"  ></span>
       </div>
 
       <div class="nb-slider-label">
@@ -18,7 +18,7 @@
         <span class="sl-value txt-cyan" ng-bind="channelA.mid">0</span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelA.mid" min=-100 max=100 handle="square" tooltip="hide"
+        <span slider ng-model="channelA.mid" min="-50" max="50" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -27,7 +27,7 @@
         <span class="sl-value txt-cyan" ng-bind="channelA.high">0</span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelA.high" min=-100 max=100 handle="square" tooltip="hide"
+        <span slider ng-model="channelA.high" min="-50" max="50" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -36,7 +36,7 @@
         <span class="sl-value txt-cyan" ng-bind="channelA.vol"></span>
       </div>
       <div class="vol-vertical-slider">
-        <span reversed="true" slider ng-model="channelA.vol" min=0 max=100 orientation="vertical" handle="square" tooltip="hide"
+        <span reversed="true" slider ng-model="channelA.vol" min="0" max="100" orientation="vertical" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -49,7 +49,7 @@
         <span class="sl-value txt-red" ng-bind="channelB.low"></span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelB.low" min=-100 max=100 handle="square" tooltip="hide"
+        <span slider ng-model="channelB.low" min="-50" max="50" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -58,7 +58,7 @@
         <span class="sl-value txt-red" ng-bind="channelB.mid"></span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelB.mid" min=-100 max=100 handle="square" tooltip="hide"
+        <span slider ng-model="channelB.mid" min="-50" max="50" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -67,7 +67,7 @@
         <span class="sl-value txt-red" ng-bind="channelB.high">+ </span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelB.high" min=-100 max=100 handle="square" tooltip="hide"
+        <span slider ng-model="channelB.high" min="-50" max="50" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 
@@ -77,7 +77,7 @@
         <span class="sl-value txt-red" ng-bind="channelB.vol"></span>
       </div>
       <div class="vol-vertical-slider">
-        <span reversed="true" slider ng-model="channelB.vol"  min=0 max=100 orientation="vertical" handle="square" tooltip="hide"
+        <span reversed="true" slider ng-model="channelB.vol"  min="0" max="100" orientation="vertical" handle="square" tooltip="hide"
               ng-bind="AudioManager"></span>
       </div>
 

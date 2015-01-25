@@ -5,19 +5,17 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
     this.startPosition = null;
 
     this.lf = AudioContext.createBiquadFilter();
-    this.lf.type = 'peaking';
-    this.lf.frequency.value = 100;
-    this.lf.Q.value = 10;
+    this.lf.type = 'lowshelf';
+    this.lf.frequency.value = 200;
 
     this.mf = AudioContext.createBiquadFilter();
     this.mf.type = 'peaking';
-    this.mf.frequency.value = 1200;
-    this.mf.Q.value = 30;
+    this.mf.frequency.value = 800;
+    this.mf.Q.value = 20;
 
     this.hf = AudioContext.createBiquadFilter();
-    this.hf.type = 'peaking';
-    this.hf.frequency.value = 6500;
-    this.hf.Q.value = 70;
+    this.hf.type = 'highshelf';
+    this.hf.frequency.value = 5000;
 
     this.bus.connect(this.lf);
     this.lf.connect(this.mf);
