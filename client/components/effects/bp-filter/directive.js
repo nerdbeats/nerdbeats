@@ -4,7 +4,6 @@ window.app.directive('bpFilterEffect', function () {
     templateUrl: 'components/effects/bp-filter/template.html',
     link: function ($scope) {
       var node = $scope.node;
-      node.gain(-5);
       $scope.$watch('value', function (newValue) {
         node.frequency(newValue);
       });

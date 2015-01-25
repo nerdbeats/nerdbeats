@@ -4,7 +4,7 @@ window.app.factory('FilterUnit', ['Lodash', 'AudioUnit', 'Tuna', function (lodas
       frequency: 20,         //20 to 22050
       Q: 1,                  //0.001 to 100
       gain: 0,               //-40 to 40
-      filterType: 0,         //0 to 7, corresponds to the filter types in the native filter node: lowpass, highpass, bandpass, lowshelf, highshelf, peaking, notch, allpass in that order
+      filterType: 'lowpass',         //0 to 7, corresponds to the filter types in the native filter node: lowpass, highpass, bandpass, lowshelf, highshelf, peaking, notch, allpass in that order
       bypass: 0
     });
   }
@@ -36,7 +36,7 @@ window.app.factory('FilterUnit', ['Lodash', 'AudioUnit', 'Tuna', function (lodas
   };
 
   FilterUnit.prototype.type = function (value) {
-    if (lodash.isNumber(value)) {
+    if (lodash.isString(value)) {
       this.node.filterType = value;
     }
 

@@ -4,6 +4,7 @@ window.app.directive('hpFilterEffect', function () {
     templateUrl: 'components/effects/hp-filter/template.html',
     link: function ($scope) {
       var node = $scope.node;
+      node.q(10);
       $scope.$watch('value', function (newValue) {
         node.frequency(newValue);
       });

@@ -59,7 +59,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
       this.node.playbackRate.value = this.playbackRate;
 
       if (lodash.isObject(this.output)) {
-        this.node.connect(this.output);
+        this.connect(this.output);
       }
     }
   };
