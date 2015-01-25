@@ -31,7 +31,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
     $scope.busy = true;
     AudioLoaderService.getBuffer(track.id).then(function (sound) {
-      AudioManagerService.loadTrackTo(channel, sound);
+      AudioManagerService.loadTrackTo(channel, {id: track.id, source: sound});
       $rootScope.$emit('track:loaded', channel);
       $scope.vm.track = track;
       $scope.busy = false;
