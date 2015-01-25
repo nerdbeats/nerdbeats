@@ -208,14 +208,17 @@ input,button,:focus{
       font-weight:700;
       margin:0 12px;
     }
-    .channel-title{
+    .channel-title,
+    .channel-progress{
       font-size:10px;
       font-weight:300;
-      border-left:2px solid @color-grey-light;
       padding: 6px 10px;
       line-height: 28px;
       height: 38px;
       margin-top: 6px;
+    }
+    .chanel-title{
+      border-left:2px solid @color-grey-light;
     }
   }
 
@@ -455,6 +458,8 @@ input,button,:focus{
   }
   .sl-value{
     float: right;
+    width: 21px;
+    overflow: hidden;
   }
 
   .effect-slider{
