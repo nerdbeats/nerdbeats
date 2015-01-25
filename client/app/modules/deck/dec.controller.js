@@ -15,6 +15,15 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
   ];
   $scope.vm.effects = [];
 
+  $scope.moveUp = function(){
+
+    
+  }
+
+  $scope.moveDown = function(){
+
+  }
+
 
   var addToDeck = function (track, channel) {
     if ($scope.channel != channel) {
