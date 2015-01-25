@@ -9,7 +9,7 @@ SearchCtrl = function ($scope, SoundCloudService, $rootScope) {
   })
 
   $scope.search = function () {
-    SoundCloudService.find({q: $scope.vm.query, limit: 50}).then(function (res) {
+    SoundCloudService.find({q: $scope.vm.query, limit: 50, duration: {to: 600000}}).then(function (res) {
       $scope.vm.tracks = res
     })
   }
