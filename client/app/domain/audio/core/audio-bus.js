@@ -13,7 +13,7 @@ window.app.factory('AudioBusUnit', ['Lodash','AudioUnit', function (lodash, Audi
       }
 
       this.node = input;
-      var output = lodash.last(this.inserts) || this.output;
+      var output = lodash.first(this.inserts) || this.output;
 
       if (lodash.isObject(output)) {
         this.node.connect(output);
