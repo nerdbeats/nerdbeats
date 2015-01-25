@@ -203,13 +203,13 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
     if (type === 'lp-filter') {
       unit = AudioFactoryService.createLPFilter();
-      defaultValue = unit.frequency.value;
+      defaultValue = 1000;
     } else if (type === 'hp-filter') {
       unit = AudioFactoryService.createHPFilter();
-      defaultValue = unit.frequency.value;
+      defaultValue = 1000;
     } else if (type === 'bp-filter') {
       unit = AudioFactoryService.createBPFilter();
-      defaultValue = unit.frequency.value;
+      defaultValue = 2500;
     } else if (type === 'delay') {
       unit = AudioFactoryService.createDelay();
       defaultValue = 0;

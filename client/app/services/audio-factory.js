@@ -40,21 +40,22 @@ window.app.factory('AudioFactoryService',
       },
       createLPFilter: function () {
         return this.createFilter({
+          type: 'lowpass',
           frequency: 1000
         });
       },
       createHPFilter: function () {
         return this.createFilter({
-          type: 2,
+          type: 'highpass',
           frequency: 500,
           q: 50
         });
       },
       createBPFilter: function () {
         return this.createFilter({
-          type: 3,
-          frequency: 2500,
-          q: 10
+          type: 'bandpass',
+          frequency: 1000,
+          q: 50
         });
       },
       createOverdrive: function (options) {
