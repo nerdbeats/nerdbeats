@@ -16,7 +16,6 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
   $scope.vm.effects = [];
 
 
-
   var addToDeck = function (track, channel) {
     if ($scope.channel != channel) {
       return;
@@ -150,13 +149,16 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
   });
 
 
-
-
   $scope.toggleEffectsGallery  = function(){
     if ($scope.vm.track) {
       $scope.vm.showGallery = !$scope.vm.showGallery;
     }
   };
+
+  $scope.removeFilter = function(index){
+    AudioManagerService.removeEffectFrom($scope.channel, index);
+    $scope.vm.effects.splice(index, 1);
+  }
 
   $scope.addEffect = function (type) {
     var unit, defaultValue = 0;

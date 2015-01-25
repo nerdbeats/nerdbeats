@@ -12,7 +12,8 @@ window.app.directive('delayEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

@@ -13,7 +13,8 @@ window.app.directive('wahwahEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });

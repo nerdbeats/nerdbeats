@@ -11,7 +11,8 @@ window.app.directive('tremoloEffect', function () {
     },
     scope: {
       node: '=',
-      value: '='
+      value: '=',
+      type: '='
     }
   };
 });
