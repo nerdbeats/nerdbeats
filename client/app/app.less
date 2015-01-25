@@ -106,6 +106,48 @@ input,button,:focus{
     font-weight:800;
     font-style: italic;
   }
+
+  .master-volume{
+    width:250px;
+    display:block;
+    background:@color-grey-medium;
+    height:34px;
+    position:relative;
+    top:14px;
+    float:left;
+
+    .mv-title{
+      font-weight: 700;
+      font-size:12px;
+      position:relative;
+      top:7px;
+      left:10px;
+    }
+  }
+  .btn-autoplay,
+  .btn-record {
+    background: @color-grey-medium;
+    border: 2px solid @color-grey-light;
+    height: 34px;
+    line-height: 0;
+    font-size: 12px;
+    font-weight: 400;
+    position:relative;
+    top:14px;
+    left:10px;
+  }
+  .btn-autoplay{
+    color:@color-green;
+    &.active{
+      border-color:@color-green;
+    }
+  }
+  .btn-record{
+    color:@color-orange;
+    &.active{
+      border-color:@color-orange;
+    }
+  }
 }
 
 .search-slider-title{
