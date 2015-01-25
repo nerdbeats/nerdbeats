@@ -86,7 +86,26 @@ input,button,:focus{
 }
 
 .main-header{
-  height:54px;
+  height:60px;
+  .app-title{
+    font-size:28px;
+    font-weight: 800;
+    font-style: italic;
+    color:@color-yellow;
+    margin:0;
+    padding:10px 0 0 20px;
+    span{
+      color:@color-grey-light;
+    }
+  }
+  .app-ver{
+    font-size:10px;
+    position:absolute;
+    left:140px;
+    color:@color-grey-light;
+    font-weight:800;
+    font-style: italic;
+  }
 }
 
 .search-slider-title{
@@ -94,12 +113,16 @@ input,button,:focus{
   font-weight:800;
   font-size:14px;
   cursor: pointer;
+  margin-top:-7px;
   i{
     font-size:20px;
     padding:24px 3px;
   }
 }
 .search-play-drawer {
+
+  padding-left:30px!important;
+  padding-right:0!important;
 
   li {
     padding: 2px 0;
@@ -466,12 +489,12 @@ input,button,:focus{
     padding:10px 32px 10px 32px;
     background:@color-grey-dark;
     display:block;
-    height:350px;
+    height:286px;
     .btn-effect{
       border:1px solid @color-grey-light;
       background:@color-grey-medium;
       width:225px;
-      height:46px;
+      height:34px;
       text-align: left;
       float:left;
       margin:5px;
@@ -493,6 +516,7 @@ input,button,:focus{
         width:140px;
         margin-top: 7px;
         margin-left: 164px;
+        height:34px;
       }
     }
   }
@@ -507,7 +531,8 @@ input,button,:focus{
   }
   .sl-value{
     float: right;
-    width: 21px;
+    width: 24px;
+    text-align: right;
     overflow: hidden;
   }
 
@@ -521,6 +546,7 @@ input,button,:focus{
     padding-top: 0;
     border: 2px solid @color-grey-prime;
     float:left;
+    margin-right:20px;
     .filler{
       display:block;
       height:36px;
@@ -666,7 +692,7 @@ input,button,:focus{
   }
 
   .vol-slider{
-    margin:22px 0 0 0;
+    margin:18px 0 0 0;
   }
 
   .vol-vertical-slider {
@@ -744,7 +770,7 @@ input,button,:focus{
   }
 
   .fade-slider{
-    margin:20px 15px;
+    margin:15px 15px;
     padding-top: 18px;
     border: 2px solid @color-grey-prime;
     border-top:none;
