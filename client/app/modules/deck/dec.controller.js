@@ -27,9 +27,12 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       return;
     }
 
+    channel = channel.toLowerCase();
+
     $scope.busy = true;
     AudioLoaderService.getBuffer(track.id).then(function (sound) {
-      AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
+      AudioManagerService.loadTrackTo(channel, sound);
+      $rootScope.$emit('track:loaded', channel);
       $scope.vm.track = track;
       $scope.busy = false;
     }).catch(function(){

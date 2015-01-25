@@ -10,7 +10,6 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
   var stop ;
   var channel = $scope.channel.toLocaleLowerCase();
 
-
   $scope.play = function () {
     if (!$scope.track){
       return;
@@ -126,6 +125,15 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     return AudioManagerService.state(channel);
   }, function (value) {
     $scope.vm.state = value;
+  });
+
+  $rootScope.$on('track:loaded', function (e, ch) {
+    console.log(ch);
+    if (channel === ch) {
+      $interval.cancel(stop);
+      $scope.vm.progress = 0;
+      $scope.vm.time = "00:00";
+    }
   });
 }
 

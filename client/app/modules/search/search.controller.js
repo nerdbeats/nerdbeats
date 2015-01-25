@@ -30,7 +30,6 @@ SearchCtrl = function ($scope, SoundCloudService, $rootScope) {
 
   $scope.addToMixer = function (track, dest) {
     $rootScope.$emit('addToDeck', track, dest);
-    console.log(dest);
   }
 
 

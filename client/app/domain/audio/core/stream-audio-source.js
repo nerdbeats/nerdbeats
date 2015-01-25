@@ -18,6 +18,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
       }
 
       this.node.mediaElement.src = src;
+      this.trigger('source:changed');
     }
 
     return this.node.mediaElement.src;

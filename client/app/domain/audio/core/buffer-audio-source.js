@@ -20,9 +20,11 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     if (lodash.isObject(buffer)) {
       if (this.isPlaying()) {
         this.stop();
+        this.offset = 0;
       }
       this.node.buffer = buffer;
       this.length = this.node.buffer.duration / 60;
+      this.trigger('source:changed');
     }
 
     return this.node.buffer;
