@@ -4,14 +4,16 @@ window.app = angular.module('nerdBeats', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'ui.bootstrap-slider'
+  'ui.bootstrap-slider',
+  'LocalStorageModule'
 ]);
 
-window.app.config(function ($routeProvider, $locationProvider) {
+window.app.config(function ($routeProvider, $locationProvider, localStorageServiceProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
       });
 
     $locationProvider.html5Mode(true);
+    localStorageServiceProvider.setPrefix('nerdBeats');
   });

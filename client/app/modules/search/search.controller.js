@@ -1,7 +1,27 @@
-SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerService) {
+SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerService, localStorageService) {
+
+  function localStorage(value) {
+    var lsKey = 'playlist';
+
+    if (value) {
+      try {
+        localStorageService.set(lsKey, value);
+      } catch (ex) {
+        localStorageService.remove(lsKey);
+      }
+    } else {
+      return localStorageService.get(lsKey);
+    }
+  }
 
   $scope.vm = {};
   $scope.vm.playlist = [];
+
+  var restored = localStorage();
+
+  if (restored) {
+    $scope.vm.playlist = restored;
+  }
 
   $scope.secondsToTime = function(t)
   {
@@ -39,11 +59,13 @@ SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerServic
 
   $scope.addToPlaylist = function (track) {
     $scope.vm.playlist.push(track);
+    localStorage($scope.vm.playlist);
   }
 
   $scope.remFromPlaylist = function (track) {
     var arr = $scope.vm.playlist;
     $scope.vm.playlist = _.without(arr, _.findWhere(arr, {id: track.id}));
+    localStorage($scope.vm.playlist);
   }
 
   $scope.isOnPlaylist = function (track) {
@@ -60,7 +82,6 @@ SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerServic
       $rootScope.$emit('addToDeck', track, dest);
     }
   }
-
 
 }
 

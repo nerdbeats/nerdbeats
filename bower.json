@@ -15,7 +15,8 @@
     "eventEmitter": "~4.2.11",
     "angular-bootstrap-slider": "~0.0.8",
     "tuna": "https://github.com/ziflex/tuna.git",
-    "toastr": "~2.1.0"
+    "toastr": "~2.1.0",
+    "angular-local-storage": "~0.1.5"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
