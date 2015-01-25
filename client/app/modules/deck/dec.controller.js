@@ -246,6 +246,8 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
         value: defaultValue,
         node: unit
       });
+
+      $scope.closeGallery();
     }
   };
 }
