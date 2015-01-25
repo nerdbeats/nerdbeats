@@ -1,7 +1,7 @@
 window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUnit', '$timeout', function (lodash, AudioContext, AudioUnit, $timeout) {
   function BufferAudioSourceUnit() {
     this.playing = false;
-    this.paused = false;
+    this.state = 'stopped';
     this.node = AudioContext.createBufferSource();
     this.output = null;
     this.length = 0;
@@ -31,6 +31,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
   BufferAudioSourceUnit.prototype.play = function (position) {
     if (!this.playing) {
       this.playing = true;
+      this.state = 'playing';
 
       if (lodash.isNumber(position)) {
         this.offset = position || 0;
@@ -43,6 +44,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
 
   BufferAudioSourceUnit.prototype.pause = function () {
     if (this.playing) {
+      this.state = 'paused';
       this.stop();
       this.offset = this.currentTime();
     }
@@ -50,6 +52,7 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
 
   BufferAudioSourceUnit.prototype.stop = function () {
     if (this.playing) {
+      this.state = 'stopped';
       var buffer = this.node.buffer;
       this.playing = false;
       this.node.stop(0);
@@ -89,6 +92,10 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
   BufferAudioSourceUnit.prototype.connect = function (target) {
     this.output = target;
     AudioUnit.prototype.connect.call(this, this.output);
+  };
+
+  BufferAudioSourceUnit.prototype.currentState = function () {
+    return this.state;
   };
 
   return BufferAudioSourceUnit;
