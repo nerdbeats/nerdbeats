@@ -10,7 +10,7 @@
         <span class="sl-value txt-cyan" ng-bind="channelA.low"></span>
       </div>
       <div class="fqz-horizontal-slider">
-        <span slider ng-model="channelA.low" min=-100 max=100 handle="square" tooltip="hide"  ></span>
+        <span slider ng-model="channelA.low" min=-100 max=100 handle="square" tooltip="hide" ></span>
       </div>
 
       <div class="nb-slider-label">
@@ -86,7 +86,7 @@
 
   <div class="row mixer">
     <div class="fqz-horizontal-slider fade-slider">
-      <span slider ng-model="vm.fade" min=-100 max=100 handle="square" tooltip="hide"></span>
+      <span slider ng-model="vm.fade"  step="0.01"  min="-1" max="1" handle="square" tooltip="hide"></span>
     </div>
   </div>
 

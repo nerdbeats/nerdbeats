@@ -18,10 +18,14 @@
   <div class="wave-progress">
     <waveform innercolor="#2b2b35" outercolor="#202028" track="track" class="wave-file"></waveform>
     <div class="progress-slider">
-      <span slider ng-model="vm.progress" min=0 max=100  handle="square"></span>
+      <span slider ng-model="vm.progress" min=0 max=100  handle="square" tooltip="hide"></span>
     </div>
-    <div class="tempo-slider">
-      <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical" handle="square"></span>
+    <div class="temp-slider-container">
+      <button class="btn-tempo-up btn-tempo"><i class="fa fa-chevron-up"></i></button>
+      <div class="tempo-slider">
+        <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical" handle="square" tooltip="hide"></span>
+      </div>
+      <button class="btn-tempo-down btn-tempo"><i class="fa fa-chevron-down"></i></button>
     </div>
   </div>
   <div class="row">
