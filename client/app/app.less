@@ -532,6 +532,9 @@ input,button,:focus{
     font-size:12px;
     font-weight:400;
     margin-right:2px;
+    &.active{
+      border-color:@color-green;
+    }
   }
 
   .btn-effect-scroll{
@@ -640,6 +643,7 @@ input,button,:focus{
       height: 183px;
       width: 100%;
       left:0;
+      background:@color-grey-dark;
       .slider-handle {
         position: absolute;
         width: 90px;
@@ -673,10 +677,10 @@ input,button,:focus{
       }
       .slider-track {
         width: 90px;
-        height: 183px;
+        height: 175px;
         margin-left: 3px;
         left: 0;
-        top: 0;
+        top: 8px;
 
         position: absolute;
         cursor: pointer;
@@ -695,7 +699,7 @@ input,button,:focus{
       }
       .slider-selection {
         width: 94px;
-        left: -2px;
+        left: -5px;
         top: 0;
         bottom: 0;
 
@@ -840,10 +844,10 @@ input,button,:focus{
       }
       .slider-track {
         width: 76px;
-        height: 201px;
+        height: 193px;
         margin-left: 3px;
         left: 0;
-        top: 0;
+        top: 8px;
 
         position: absolute;
         cursor: pointer;
