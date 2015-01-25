@@ -1,5 +1,5 @@
 window.app.factory('AudioFactoryService',
-  function (Lodash, AudioContext, DelayUnit, OverdriveUnit, PhaserUnit, ChorusUnit, TremoloUnit, WahWahUnit) {
+  function (Lodash, AudioContext, DelayUnit, OverdriveUnit, PhaserUnit, ChorusUnit, TremoloUnit, WahWahUnit, FilterUnit, ReverbUnit) {
     lodash = Lodash;
     ctx = AudioContext;
     return {
@@ -28,29 +28,13 @@ window.app.factory('AudioFactoryService',
         return new DelayUnit();
       },
       createFilter: function (options) {
-        var node = this.getContext().createBiquadFilter();
+        var node = new FilterUnit();
         options = options || {};
 
-        if (lodash.isString(options.type)) {
-
-          node.type = options.type;
-        }
-
-        if (lodash.isNumber(options.frequency)) {
-          node.frequency.value = options.frequency;
-        }
-
-        if (lodash.isNumber(options.detune)) {
-          node.detune.value = options.detune;
-        }
-
-        if (lodash.isNumber(options.q)) {
-          node.Q.value = options.q;
-        }
-
-        if (lodash.isNumber(options.gain)) {
-          node.gain.value = options.gain;
-        }
+        node.type(options.type);
+        node.frequency(options.frequency);
+        node.q(options.q);
+        node.gain(options.gain);
 
         return node;
       },
@@ -61,19 +45,26 @@ window.app.factory('AudioFactoryService',
       },
       createHPFilter: function () {
         return this.createFilter({
-          type: 'highpass',
-          frequency: 500
+          type: 2,
+          frequency: 500,
+          q: 50
         });
       },
       createBPFilter: function () {
         return this.createFilter({
-          type: 'bandpass',
+          type: 3,
           frequency: 2500,
-          q: 40
+          q: 10
         });
       },
-      createOverdrive: function () {
-        return new OverdriveUnit();
+      createOverdrive: function (options) {
+        var node = new OverdriveUnit();
+        options = options || {};
+        node.algorithmIndex(options.algorithm);
+        return node;
+      },
+      createReverb: function () {
+        return new ReverbUnit();
       },
       createPhaser: function () {
         return new PhaserUnit();

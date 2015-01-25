@@ -6,12 +6,13 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     {type: 'lp-filter', title: 'LP Filter'},
     {type: 'hp-filter', title: 'HP Filter'},
     {type: 'bp-filter', title: 'BP Filter'},
+    {type: 'reverb', title: 'Reverb'},
     {type: 'delay', title: 'Delay'},
-    {type: 'overdrive', title: 'Overdrive'},
     {type: 'phaser', title: 'Phaser'},
     {type: 'chorus', title: 'Chorus'},
     {type: 'tremolo', title: 'Tremolo'},
-    {type: 'wahwah', title: 'Wah Wah'}
+    {type: 'wahwah', title: 'Wah Wah'},
+    {type: 'overdrive', title: 'Overdrive'}
   ];
   $scope.vm.effects = [];
 
@@ -195,7 +196,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       defaultValue = 0;
     } else if (type === 'overdrive') {
       unit = AudioFactoryService.createOverdrive();
-      defaultValue = 1;
+      defaultValue = 0.1;
     } else if (type === 'phaser') {
       unit = AudioFactoryService.createPhaser();
       defaultValue = 0.1;
@@ -207,6 +208,9 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       defaultValue = 0.1;
     }else if (type === 'wahwah') {
       unit = AudioFactoryService.createWahWah();
+      defaultValue = 0.1;
+    } else if (type === 'reverb') {
+      unit = AudioFactoryService.createReverb();
       defaultValue = 0.1;
     }
 

@@ -2,7 +2,7 @@ window.app.factory('OverdriveUnit', ['Lodash', 'AudioUnit', 'Tuna', function (lo
   function OverdriveUnit () {
     this.node = new Tuna.Overdrive({
       outputGain: 0.5,         //0 to 1+
-      drive: 0.7,              //0 to 1
+      drive: 0.1,              //0 to 1
       curveAmount: 1,          //0 to 1
       algorithmIndex: 0,       //0 to 5, selects one of our drive algorithms
       bypass: 0
