@@ -1,9 +1,12 @@
 window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUnit', function (lodash, AudioContext, AudioUnit) {
   function BufferAudioSourceUnit() {
     this.playing = false;
+    this.paused = false;
     this.node = AudioContext.createBufferSource();
     this.output = null;
     this.length = 0;
+    this.startedAt = 0;
+    this.offset = 0;
   }
 
   BufferAudioSourceUnit.prototype = new AudioUnit();
@@ -24,14 +27,25 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
     return this.node.buffer;
   };
 
-  BufferAudioSourceUnit.prototype.play = function () {
+  BufferAudioSourceUnit.prototype.play = function (position) {
     if (!this.playing) {
       this.playing = true;
-      this.node.start(0);
+
+      if (lodash.isNumber(position)) {
+        this.offset = position || 0;
+      }
+
+      this.node.start(0, this.offset);
+      this.startedAt = this.node.context.currentTime - this.offset;
     }
   };
 
-  BufferAudioSourceUnit.prototype.pause = function () {};
+  BufferAudioSourceUnit.prototype.pause = function () {
+    if (this.playing) {
+      this.stop();
+      this.offset = this.currentTime();
+    }
+  };
 
   BufferAudioSourceUnit.prototype.stop = function () {
     if (this.playing) {
@@ -49,7 +63,16 @@ window.app.factory('BufferAudioSourceUnit', ['Lodash', 'AudioContext', 'AudioUni
   };
 
   BufferAudioSourceUnit.prototype.currentTime = function (position) {
-    return 0;
+    if (lodash.isNumber(position)) {
+      if (this.isPlaying()) {
+        this.stop();
+        this.play(position);
+      } else {
+        this.offset = position;
+      }
+    }
+
+    return this.node.context.currentTime - this.startedAt;
   };
 
   BufferAudioSourceUnit.prototype.playbackRate = function (value) {

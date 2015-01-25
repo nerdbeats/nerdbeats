@@ -45,7 +45,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype.play = function () {
     if (!this.isPlaying()) {
       if (this.startPosition){
-        this.bus.input().currentTime(this.startPosition);
+        this.bus.input().currentTime(this.startPosition); //cue
       }
       this.bus.input().play();
     }
@@ -54,7 +54,7 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   Deck.prototype.stop = function () {
     if (this.isPlaying()) {
       this.bus.input().stop();
-      this.bus.input().currentTime(this.startPosition || 0);
+      this.bus.input().currentTime(this.startPosition || 0); //cue
     }
   };
 
