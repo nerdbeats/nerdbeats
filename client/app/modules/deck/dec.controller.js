@@ -1,6 +1,10 @@
 DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService, AudioFactoryService) {
 
   $scope.vm = {};
+  $scope.vm.sortableOptions = {
+    orderChanged: function(event) {},
+    containment: '#filter'
+  };
   $scope.vm.showGallery = false;
   $scope.vm.effectsGallery = [
     {type: 'lp-filter', title: 'LP Filter'},

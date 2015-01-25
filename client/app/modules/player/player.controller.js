@@ -63,6 +63,9 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     AudioManagerService.cue(channel, time);
   }
 
+  $scope.changeTempo = function (value) {
+    $scope.vm.tempo += value;
+  }
 
   $scope.$watch("vm.progress", function(){
     if (!$scope.track){
