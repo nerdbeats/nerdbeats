@@ -7,7 +7,7 @@ window.app.directive('overdriveEffect', function () {
       node.algorithmIndex(3);
       $scope.$watch('value', function (newValue) {
         node.drive(newValue);
-        node.outputGain(newValue);
+        node.curveAmount(newValue);
       });
     },
     scope: {

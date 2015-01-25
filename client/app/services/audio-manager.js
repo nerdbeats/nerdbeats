@@ -44,8 +44,7 @@ window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
       return mx.decks[normalize(deck)].currentTime(position);
     },
     cue: function (deck, position) {
-      mx.decks[normalize(deck)].cue(position);
-      return this;
+      return mx.decks[normalize(deck)].cue(position);
     },
     lowFreq: function (deck, value) {
       return mx.decks[normalize(deck)].lowFrequency(value);
