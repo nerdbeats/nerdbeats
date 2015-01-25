@@ -12,7 +12,9 @@ MixerCtrl = function ($scope, AudioManagerService) {
     high: 0,
     vol: 100
   }
-  $scope.vm = {}
+  $scope.vm = {
+    fade: 0
+  }
   $scope.vm.tst = 0;
 
 
@@ -44,6 +46,10 @@ MixerCtrl = function ($scope, AudioManagerService) {
   })
   $scope.$watch('channelB.vol', function(){
     AudioManagerService.volumeOf('b', $scope.channelB.vol /100);
+  })
+
+  $scope.$watch('vm.fade', function(){
+    AudioManagerService.fade($scope.vm.fade/100);
   })
 }
 

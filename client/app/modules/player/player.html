@@ -16,9 +16,13 @@
     </div>
   </header>
   <div class="wave-progress">
-    <waveform width="424" height="160" innercolor="#333" outercolor="blue" track="track"></waveform>
-    <span slider ng-model="vm.progress" min=0 max=100  handle="square"></span>
-    <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical" handle="square"></span>
+    <waveform innercolor="#2b2b35" outercolor="#202028" track="track" class="wave-file"></waveform>
+    <div class="progress-slider">
+      <span slider ng-model="vm.progress" min=0 max=100  handle="square"></span>
+    </div>
+    <div class="tempo-slider">
+      <span slider ng-model="vm.tempo" min=-50 max=50 orientation="vertical" handle="square"></span>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-12">
