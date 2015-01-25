@@ -2,9 +2,29 @@
   height: 100px;
 }
 
+
+
 .shell{
-  width: 1366px;
-  height: 768px;
+  width:1366px;
+  height:768px;
+  overflow: hidden;
   display:block;
   margin:0 auto;
+}
+
+
+.search-panel{
+  position:relative;
+  bottom:100px;
+  width:100%;
+  height: 600px;
+  &.expanded{
+    bottom:600px;
+  }
+
+  -webkit-transition: 1s ease;
+  -moz-transition: 1s ease;
+  -ms-transition: 1s ease;
+  -o-transition: 1s ease;
+  transition: 1s ease;
 }
