@@ -23,10 +23,10 @@
         <ul class="track-list" >
           <li ng-repeat="track in vm.tracks">
             <div class="row">
-              <div class="col-md-5">{{track.title}}</div>
+              <div class="col-md-5 flow-stop" tooltip="{{track.title}}">{{track.title}}</div>
               <div class="col-md-2">{{secondsToTime(track.duration)}}</div>
               <div class="col-md-2">{{track.bpm}}</div>
-              <div class="col-md-2">{{track.genre}}</div>
+              <div class="col-md-2 flow-stop" tooltip="{{track.genre}}">{{track.genre}}</div>
               <div class="col-md-1">
                 <button ng-click="addToPlaylist(track)" ng-hide="isOnPlaylist(track)" class="btn-plus">
                   +
@@ -56,10 +56,10 @@
                   B
                 </button>
               </div>
-              <div class="col-md-4">{{track.title}}</div>
+              <div class="col-md-4 flow-stop" tooltip="{{track.title}}">{{track.title}}</div>
               <div class="col-md-2">{{secondsToTime(track.duration)}}</div>
               <div class="col-md-1">{{track.bpm}}</div>
-              <div class="col-md-2">{{track.genre}}</div>
+              <div class="col-md-2 flow-stop" tooltip="{{track.genre}}">{{track.genre}}</div>
               <div class="col-md-1">
                 <button ng-click="remFromPlaylist(track)" class="btn-minus">
                   -
