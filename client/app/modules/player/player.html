@@ -37,7 +37,7 @@
         <button ng-click="play()" class="btn-play" ng-class="{'active' : vm.state === 'playing'}"><i class="fa fa-play"></i></button>
         <button ng-click="pause()" class="btn-pause" ng-class="{'active' : vm.state === 'paused'}"><i class="fa fa-pause"></i></button>
         <button ng-click="stop()" class="btn-stop" ng-class="{'active' : vm.state === 'stopped'}"><i class="fa fa-stop"></i></button>
-        <button ng-click="cue()" class="btn-cue">cue</button>
+        <button ng-click="cue()" class="btn-cue" ng-class="{'active' : vm.cuePosition > 0}">cue</button>
       </div>
     </div>
   </div>
