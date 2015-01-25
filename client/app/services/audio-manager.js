@@ -57,6 +57,9 @@ window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
     },
     tempo: function (deck, value) {
       return mx.decks[normalize(deck)].tempo(value);
+    },
+    state: function (deck) {
+      return mx.decks[normalize(d)].currentState();
     }
   };
 });

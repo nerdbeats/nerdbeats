@@ -1,6 +1,7 @@
 window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext', 'AudioUnit', function ($window, lodash, AudioContext, AudioUnit) {
   function StreamAudioSourceUnit() {
     this.playing = false;
+    this.state = 'stopped';
     this.node = AudioContext.createMediaElementSource(new $window.Audio());
   }
 
@@ -25,6 +26,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
   StreamAudioSourceUnit.prototype.play = function () {
     if (!this.playing) {
       this.playing = true;
+      this.state = 'playing';
       this.node.mediaElement.play();
     }
   };
@@ -32,6 +34,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
   StreamAudioSourceUnit.prototype.pause = function () {
     if (this.playing) {
       this.playing = false;
+      this.state = 'paused';
       this.node.mediaElement.pause();
     }
   };
@@ -39,6 +42,7 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
   StreamAudioSourceUnit.prototype.stop = function () {
     if (this.playing) {
       this.playing = false;
+      this.state = 'stopped';
       this.node.mediaElement.pause();
       this.currentTime(0.0);
     }
@@ -54,6 +58,10 @@ window.app.factory('StreamAudioSourceUnit', ['$window', 'Lodash', 'AudioContext'
 
   StreamAudioSourceUnit.prototype.tempo = function (value) {
     return 0;
+  };
+
+  StreamAudioSourceUnit.prototype.currentState = function () {
+    return this.state;
   };
 
   return StreamAudioSourceUnit;
