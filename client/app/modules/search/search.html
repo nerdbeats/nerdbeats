@@ -20,14 +20,14 @@
         </form>
 
         <h3 class="h-underline">RESULTS</h3>
-        <ul class="track-list" >
+        <ul class="track-list">
           <li ng-repeat="track in vm.tracks">
             <div class="row">
               <div class="col-md-5 flow-stop" tooltip="{{track.title}}">{{track.title}}</div>
-              <div class="col-md-2">{{secondsToTime(track.duration)}}</div>
-              <div class="col-md-2">{{track.bpm}}</div>
+              <div class="col-md-1">{{secondsToTime(track.duration)}}</div>
+              <div class="col-md-1">{{track.bpm}}</div>
               <div class="col-md-2 flow-stop" tooltip="{{track.genre}}">{{track.genre}}</div>
-              <div class="col-md-1">
+              <div class="col-md-3 text-center">
                 <button ng-click="addToPlaylist(track)" ng-hide="isOnPlaylist(track)" class="btn-plus">
                   +
                 </button>
