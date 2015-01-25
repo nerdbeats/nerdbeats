@@ -1,21 +1,29 @@
 <div ng-controller="ConsoleCtrl" class="shell">
-  <div class="row console">
-    <div class="col-md-5 deck deck-a">
-      <deck channel="A"></deck>
+    <div class="row main-header">
+      <div class="col-md-7">
+        <h1>NERDBEATS</h1>
+      </div>
+      <div class="col-md-5">
+      </div>
     </div>
-    <div class="col-md-2">
-      <div ng-include="'app/modules/mixer/mixer.html'"></div>
+
+    <div class="row console">
+      <div class="col-md-5 deck deck-a">
+        <deck channel="A"></deck>
+      </div>
+      <div class="col-md-2">
+        <div ng-include="'app/modules/mixer/mixer.html'"></div>
+      </div>
+      <div class="col-md-5 deck deck-b">
+        <deck channel="B"></deck>
+      </div>
     </div>
-    <div class="col-md-5 deck deck-b">
-      <deck channel="B"></deck>
-    </div>
-  </div>
 
 
-  <div class="row search-panel" ng-class="vm.class">
-    <div class="row search-header" ng-click="toggleSearchPanel()">
-      <span class="col-md-12 text-center search-slider-title"><span class="txt-blue">SEARCH & PLAYLIST</span> <i class="fa fa-chevron-down txt-grey-light"></i></span>
+    <div class="row search-panel" ng-class="vm.class">
+      <div class="row search-header" ng-click="toggleSearchPanel()">
+        <span class="col-md-12 text-center search-slider-title"><span class="txt-blue">SEARCH & PLAYLIST</span> <i class="fa fa-chevron-down txt-grey-light"></i></span>
+      </div>
+      <div ng-include="'app/modules/search/search.html'"></div>
     </div>
-    <div ng-include="'app/modules/search/search.html'"></div>
-  </div>
 </div>

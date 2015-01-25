@@ -84,6 +84,11 @@ input,button,:focus{
 .h-underline{
   border-bottom:2px solid @color-grey-light;
 }
+
+.main-header{
+  height:54px;
+}
+
 .search-slider-title{
   font-style: italic;
   font-weight:800;
@@ -163,6 +168,7 @@ input,button,:focus{
 
 .console{
   background:@color-grey-medium;
+  padding-top:15px;
 }
 
 
@@ -255,6 +261,12 @@ input,button,:focus{
       border-left:2px solid @color-grey-light;
       width:70px;
     }
+  }
+  .cue-marker{
+    color:red;
+    background:red;
+    position:absolute;
+    z-index:1000;
   }
 
   .wave-progress{
@@ -732,8 +744,7 @@ input,button,:focus{
   }
 
   .fade-slider{
-    margin:30px 15px;
-
+    margin:20px 15px;
     padding-top: 18px;
     border: 2px solid @color-grey-prime;
     border-top:none;

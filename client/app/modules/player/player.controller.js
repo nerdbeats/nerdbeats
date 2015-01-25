@@ -5,6 +5,8 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
   $scope.vm.time = "00:00";
   $scope.vm.tempo = 1;
   $scope.vm.tempoOffset = 0;
+  $scope.vm.cuePosition = null;
+  $scope.vm.state = 'stopped';
   var stop ;
   var channel = $scope.channel.toLocaleLowerCase();
 
@@ -79,6 +81,10 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     AudioManagerService.cue(channel, time);
   }
 
+  $scope.getCuePosition = function () {
+    return $scope.vm.cuePosition || '';
+  }
+
   $scope.changeTempo = function (value) {
     $scope.vm.tempo += value;
   }
@@ -105,9 +111,21 @@ PlayerCtrl = function ($scope, $rootScope,  AudioManagerService, $interval) {
     return (value * 100).toFixed(2);
   }
 
+  $scope.$watch(function () {
+    return AudioManagerService.cue(channel);
+  }, function (newValue) {
+    $scope.vm.cuePosition = newValue;
+  });
+
   $scope.$watch('vm.tempo', function () {
     $scope.vm.tempoOffset = calculateTempoOffset($scope.vm.tempo);
     AudioManagerService.tempo(channel, $scope.vm.tempo); // normal value is 1
+  });
+
+  $scope.$watch(function () {
+    return AudioManagerService.state(channel);
+  }, function (value) {
+    $scope.vm.state = value;
   });
 }
 

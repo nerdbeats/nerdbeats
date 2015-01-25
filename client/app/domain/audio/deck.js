@@ -116,5 +116,9 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
     return 1;
   };
 
+  Deck.prototype.currentState = function () {
+    return this.input().currentState();
+  };
+
   return Deck;
 }]);
