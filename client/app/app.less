@@ -356,6 +356,41 @@ input,button,:focus{
     font-size:12px;
     font-weight:400;
   }
+
+  .effects-gallery{
+    margin-top:10px;
+    padding:10px;
+    background:@color-grey-dark;
+    display:block;
+    height:350px;
+    .btn-effect{
+      border:1px solid @color-grey-light;
+      background:@color-grey-medium;
+      width:225px;
+      height:46px;
+      text-align: left;
+      float:left;
+      margin:5px;
+      padding-left:10px;
+    }
+    .footer-buttons{
+      float:left;
+      margin-left:5px;
+      .btn-use{
+        .square-button(@color-green);
+        font-size:14px;
+        font-weight: 700;
+        width:140px;
+      }
+      .btn-close{
+        .square-button(@color-pink);
+        font-size:14px;
+        font-weight: 700;
+        width:140px;
+      }
+    }
+  }
+
 }
 
 .mixer{
