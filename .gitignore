@@ -7,3 +7,4 @@ dist
 /server/config/local.env.js
 /e2e
 .divshot-cache/deploy/0b/00/09/dc498ebaa2f13295b13cf1950c3f4ded3fc8a9928029cbab95edc46890
+.divshot-cache
