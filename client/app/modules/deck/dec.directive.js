@@ -6,16 +6,7 @@ app.directive('deck', function () {
       channel: '@channel'
     },
     controller: DeckCtrl,
-    link: function (scope, element, attrs) {
-      //var el = $(element).find('.effect-slider')[0];
-      //var sortable = Sortable.create(el,
-      //  {
-      //    onUpdate: function (/**Event*/evt) {
-      //      console.log(evt)
-      //    }
-      //  }
-      //);
-
+    link: function (scope, element) {
       scope.moveUp = function () {
         var el = element.find('.effects-teaser-holder')
         var offset = Math.max(el.scrollLeft() + 10, el.outerWidth())
