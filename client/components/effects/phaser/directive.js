@@ -8,6 +8,7 @@ window.app.directive('phaserEffect', function () {
         node.depth(newValue);
         node.rate(newValue * 10);
         node.feedback(newValue);
+        node.bypass(newValue === 0);
       });
     },
     scope: {

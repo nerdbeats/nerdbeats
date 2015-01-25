@@ -8,6 +8,7 @@ window.app.directive('overdriveEffect', function () {
       $scope.$watch('value', function (newValue) {
         node.drive(newValue);
         node.curveAmount(newValue);
+        node.bypass(newValue === 0);
       });
     },
     scope: {

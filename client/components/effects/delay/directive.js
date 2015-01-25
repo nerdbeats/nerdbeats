@@ -8,6 +8,7 @@ window.app.directive('delayEffect', function () {
         node.wetLevel(newValue * 100);
         node.delayTime(newValue * 100);
         node.feedback(newValue);
+        node.bypass(newValue === 0);
       });
     },
     scope: {
