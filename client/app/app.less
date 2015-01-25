@@ -179,9 +179,15 @@ input,button,:focus{
 
     button.btn-a{
       .square-button(@color-cyan);
+      &.active{
+        border-color:@color-cyan;
+      }
     }
     button.btn-b{
       .square-button(@color-red);
+      &.active{
+        border-color:@color-red;
+      }
     }
     button.btn-minus{
       .square-button(@color-green);
@@ -429,17 +435,29 @@ input,button,:focus{
 
   button.btn-play{
     .square-button(@color-green);
+    &.active{
+      border-color:@color-green;
+    }
   }
   button.btn-pause{
     .square-button(@color-yellow);
+    &.active{
+      border-color:@color-yellow;
+    }
   }
   button.btn-stop{
     .square-button(@color-pink);
+    &.active{
+      border-color:@color-pink;
+    }
   }
   button.btn-cue{
     .square-button(@color-grey-lightest);
     font-size:12px;
     line-height:44px;
+    &.active{
+      border-color:@color-grey-lightest;
+    }
   }
 }
 
