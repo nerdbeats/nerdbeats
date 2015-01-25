@@ -26,6 +26,9 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     });
   }
 
+
+
+
   addToDeck({
     "kind": "track",
     "id": 5174841,
@@ -154,6 +157,12 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
       $scope.vm.showGallery = !$scope.vm.showGallery;
     }
   };
+
+  $scope.getFilterClass = function(e){
+
+    var hasOnList = _.findWhere($scope.vm.effects, {type: e.type})
+    return hasOnList ? 'active' : 'none';
+  }
 
   $scope.removeFilter = function(index){
     AudioManagerService.removeEffectFrom($scope.channel, index);
