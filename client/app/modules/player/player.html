@@ -11,9 +11,8 @@
         {{vm.time}}
       </div>
       <div class="ph-item channel-tempo">
-        <span>128BPM</span>
-        <span>0%</span>
-        <!--{{tempo}}-->
+        <span>{{bpmToStr()}}</span>
+        <span>{{vm.tempoOffset}}%</span>
       </div>
     </div>
   </header>
@@ -26,7 +25,7 @@
     <div class="tempo-slider-container">
       <button class="btn-tempo-up btn-tempo" ng-click="changeTempo(0.001)"><i class="fa fa-chevron-up"></i></button>
       <div class="tempo-slider">
-        <span slider ng-model="vm.tempo"  min="0.00001" max="2" step="0.00001" precision="0.00001"  orientation="vertical" handle="square" tooltip="hide"></span>
+        <span slider ng-model="vm.tempo"  min="0.00001" max="1.99999" step="0.00001" precision="0.00001"  orientation="vertical" handle="square" tooltip="hide"></span>
       </div>
       <button class="btn-tempo-down btn-tempo" ng-click="changeTempo(-0.001)"><i class="fa fa-chevron-down"></i></button>
     </div>
