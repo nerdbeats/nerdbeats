@@ -1,21 +1,31 @@
 <div class="deck">
+
+  <div class="spinner" ng-show="busy">
+    spinner
+    <div id="loader-7">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
   <player channel="{{channel}}" , track="vm.track"></player>
   <section class="effects-desk">
-      <div class="row">
-        <div class="effects-holder">
-          <button class="btn-add-effect" ng-click="toggleEffectsGallery()">+ Add Effect</button>
+    <div class="row">
+      <div class="effects-holder">
+        <button class="btn-add-effect" ng-click="toggleEffectsGallery()">+ Add Effect</button>
 
 
-            <button class="btn-effect-scroll btn-effect-scroll-left" ng-click="moveDown()"><i class="fa fa-chevron-left"></i></button>
-            <div class="effects-teaser-holder">
-              <div ng-repeat="effect in vm.effects" class="effect-teaser">
-                <div>
-                  {{effect.type}}
-                  <button ng-click="removeFilter($index)">x</button>
-                </div>
-              </div>
+        <button class="btn-effect-scroll btn-effect-scroll-left" ng-click="moveDown()"><i
+          class="fa fa-chevron-left"></i></button>
+        <div class="effects-teaser-holder">
+          <div ng-repeat="effect in vm.effects" class="effect-teaser">
+            <div>
+              {{effect.type}}
+              <button ng-click="removeFilter($index)">x</button>
             </div>
-            <button class="btn-effect-scroll btn-effect-scroll-right" ng-click="moveUp()"><i class="fa fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <button class="btn-effect-scroll btn-effect-scroll-right" ng-click="moveUp()"><i
+          class="fa fa-chevron-right"></i></button>
 
       </div>
     </div>

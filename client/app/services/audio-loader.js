@@ -22,7 +22,9 @@ window.app.factory('AudioLoaderService', function ($http, $q, SoundCloudService,
         } else {
           def.reject(err);
         }
-      });
+      }, function(err){
+        def.reject(err);
+      })
 
       return def.promise;
     }

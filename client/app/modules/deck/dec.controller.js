@@ -30,9 +30,14 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
     if ($scope.channel != channel) {
       return;
     }
+
+    $scope.busy = true;
     AudioLoaderService.getBuffer(track.id).then(function (sound) {
       AudioManagerService.loadTrackTo(channel.toLowerCase(), sound);
       $scope.vm.track = track;
+      $scope.busy = false;
+    }).catch(function(){
+      $scope.busy = false;
     });
   }
 

@@ -311,15 +311,15 @@ module.exports = function (grunt) {
       options: {
         // This should be the name of your apps angular module
         module: 'nerdBeats',
-        htmlmin: {
-          collapseBooleanAttributes: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true,
-          removeEmptyAttributes: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true
-        },
+        //htmlmin: {
+        //  //collapseBooleanAttributes: true,
+        //  collapseWhitespace: true,
+        //  removeAttributeQuotes: true,
+        //  removeEmptyAttributes: true,
+        //  removeRedundantAttributes: true,
+        //  removeScriptTypeAttributes: true,
+        //  removeStyleLinkTypeAttributes: true
+        //},
         usemin: 'app/app.js'
       },
       main: {
