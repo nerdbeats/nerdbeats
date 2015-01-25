@@ -109,15 +109,19 @@ window.app.factory('Deck', ['Lodash', 'AudioContext', 'AudioUnit', 'AudioBusUnit
   };
 
   Deck.prototype.tempo = function (value) {
-    if (this.bus.input()) {
-      return this.bus.input().tempo(value);
+    if (this.input()) {
+      return this.input().tempo(value);
     }
 
     return 1;
   };
 
   Deck.prototype.currentState = function () {
-    return this.input().currentState();
+    if (this.input()) {
+      return this.input().currentState();
+    }
+
+    return 'stopped';
   };
 
   return Deck;
