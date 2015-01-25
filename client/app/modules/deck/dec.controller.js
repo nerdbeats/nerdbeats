@@ -17,7 +17,7 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
   $scope.moveUp = function(){
 
-    
+
   }
 
   $scope.moveDown = function(){
@@ -36,6 +36,9 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
   }
 
 
+  $scope.closeGallery = function(){
+    $scope.vm.showGallery = false;
+  }
 
 
   addToDeck({
