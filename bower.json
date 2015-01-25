@@ -15,16 +15,10 @@
     "eventEmitter": "~4.2.11",
     "angular-bootstrap-slider": "~0.0.8",
     "tuna": "https://github.com/ziflex/tuna.git",
-    "toastr": "~2.1.0",
-    "ng-sortable": "~1.1.9"
+    "toastr": "~2.1.0"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
     "angular-scenario": ">=1.2.*"
-  },
-  "overrides": {
-    "ng-sortable": {
-      "main": "dist/ng-sortable.js"
-    }
   }
 }
