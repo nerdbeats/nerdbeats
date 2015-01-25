@@ -1,4 +1,4 @@
-SearchCtrl = function ($scope, SoundCloudService, $rootScope) {
+SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerService) {
 
   $scope.vm = {};
   $scope.vm.playlist = []
@@ -27,9 +27,15 @@ SearchCtrl = function ($scope, SoundCloudService, $rootScope) {
     return _.findWhere($scope.vm.playlist, {id: track.id})
   }
 
+  $scope.isLoadedTo = function (deck, track) {
+    return AudioManagerService.currentTrackId(deck) === track.id;
+  };
+
 
   $scope.addToMixer = function (track, dest) {
-    $rootScope.$emit('addToDeck', track, dest);
+    if (!$scope.isLoadedTo(dest, track)) {
+      $rootScope.$emit('addToDeck', track, dest);
+    }
   }
 
 

@@ -1,6 +1,11 @@
-window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
+window.app.factory('AudioManagerService', function (AudioContext, Mixer, Lodash) {
   var mx = new Mixer();
   mx.connect(AudioContext.destination);
+
+  var tracks = {};
+  Lodash.each(mx.decks, function (deck) {
+    tracks[deck] = -1;
+  });
 
   function normalize(d) {
     return d.toLowerCase();
@@ -11,8 +16,12 @@ window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
       return mx.decks[normalize(deck)].volume(value);
     },
     loadTrackTo: function (deck, track) {
-      mx.decks[normalize(deck)].input(track);
+      tracks[deck] = track.id;
+      mx.decks[normalize(deck)].input(track.source);
       return this;
+    },
+    currentTrackId: function (deck) {
+      return tracks[normalize(deck)];
     },
     insertEffectTo: function (deck, effect, position) {
       mx.decks[normalize(deck)].bus.addInsert(effect, position);
