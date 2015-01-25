@@ -166,6 +166,15 @@ input,button,:focus{
   .progress-slider .slider-selection{
     background-color: @color-cyan!important;
   }
+  .sl-value{
+    color:@color-cyan;
+  }
+  .effect-vertical-slider{
+    .filler,
+    .slider-track{
+      background: @color-cyan-dark;
+    }
+  }
 }
 .deck-b{
   .deck {
@@ -179,6 +188,15 @@ input,button,:focus{
   }
   .progress-slider .slider-selection{
     background-color: @color-red!important;
+  }
+  .sl-value{
+    color:@color-red;
+  }
+  .effect-vertical-slider{
+    .filler,
+    .slider-track{
+      background: @color-red-dark;
+    }
   }
 }
 
@@ -445,18 +463,32 @@ input,button,:focus{
 
   .effect-vertical-slider {
     height: 242px;
+    width: 92px;
     padding-top: 0;
     border: 2px solid @color-grey-prime;
+    float:left;
+    .filler{
+      display:block;
+      height:36px;
+      position:absolute;
+      //background:@color-green;
+      width:84px;
+      margin-top:200px;
+      margin-left:2px;
+    }
     .slider-vertical {
-      height: 238px;
+      height: 183px;
       width: 100%;
       left:0;
+      .tooltip{
+        display:none;
+      }
       .slider-handle {
         position: absolute;
         width: 86px;
         height: 36px;
-        left:0px;
-        margin-top:-5px;
+        left: 4px;
+        margin-top: 0px;
         background-color: @color-grey-prime;
         background-image: none;
         -webkit-filter: none;
@@ -465,6 +497,7 @@ input,button,:focus{
         opacity: 1;
         border: 2px solid @color-grey-light;
         top: -18px;
+        border-radius: 0;
       }
       .slider-track {
         width: 100%;
@@ -477,7 +510,7 @@ input,button,:focus{
 
         position: absolute;
         cursor: pointer;
-        background:@color-green;
+        //background:@color-green;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
@@ -616,7 +649,7 @@ input,button,:focus{
 
         position: absolute;
         cursor: pointer;
-        background:@color-green;
+        background:@color-green-dark;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
@@ -673,7 +706,7 @@ input,button,:focus{
       .slider-track {
         position: absolute;
         cursor: pointer;
-        background: @color-red;
+        background: @color-red-dark;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;
@@ -683,7 +716,7 @@ input,button,:focus{
       }
       .slider-selection {
         position: absolute;
-        background-color: @color-cyan;
+        background-color: @color-cyan-dark;
         background-image: none;
         filter: none;
         -webkit-box-shadow: none;

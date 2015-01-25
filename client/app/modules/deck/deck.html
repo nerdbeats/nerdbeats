@@ -34,9 +34,13 @@
     </div>
     <div class="effects-list" ng-hide="vm.showGallery">
 
-      <div ng-repeat="effect in vm.effects" class="effect-vertical-slider">
-        <effect type="effect.type" value="effect.value" node="effect.node"></effect>
+      <div class="effect-slider">
+        <div ng-repeat="effect in vm.effects" class="effect-vertical-slider">
+          <div class="filler"></div>
+          <effect type="effect.type" value="effect.value" node="effect.node"></effect>
+        </div>
       </div>
+
     </div>
   </section>
 </div>

@@ -1,5 +1,5 @@
-<header >
-  <span>{{type}}</span>
-  <span>{{value}}</span>
-</header>
-<slider ng-model="value" precision="100" min="10" max=10000" step="100" orientation="vertical" reversed="true"></slider>
+<div class="nb-slider-label">
+  <span class="sl-title">{{type}}</span>
+  <span class="sl-value txt-deck">{{value}}</span>
+</div>
+<slider ng-model="value" precision="100" min="10" max=10000" step="100" orientation="vertical" reversed="true" handle="square" tooltip="hide"></slider>
