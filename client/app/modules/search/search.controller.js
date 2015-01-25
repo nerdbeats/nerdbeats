@@ -1,7 +1,30 @@
 SearchCtrl = function ($scope, SoundCloudService, $rootScope, AudioManagerService) {
 
   $scope.vm = {};
-  $scope.vm.playlist = []
+  $scope.vm.playlist = [];
+
+  $scope.secondsToTime = function(t)
+  {
+    var secs, ret='';
+
+    if (t) {
+      secs = Math.round(t) / 1000;
+
+      var divisor_for_minutes = secs % (60 * 60);
+      var minutes = Math.floor(divisor_for_minutes / 60);
+
+      var divisor_for_seconds = divisor_for_minutes % 60;
+      var seconds = Math.ceil(divisor_for_seconds);
+
+      var m = "0" + minutes;
+      m =  m.substr(m.length-2);
+      var s = "0" + seconds;
+      s =  s.substr(s.length-2);
+      ret = m + ':' + s;
+    }
+
+    return ret;
+  };
 
 
   SoundCloudService.find({limit: 50}).then(function (res) {
