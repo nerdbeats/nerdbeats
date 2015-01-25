@@ -16,20 +16,16 @@
 
 .spinner{
   position: absolute;
-  background: red;
-  opacity: 0.4;
-  width: 100%;
-  height: 100%;
+  opacity: 0.1;
+  top:130px;
+  width: 500px;
+  height: 164px;
+  margin-left:10px;
+  z-index: 1000;
+
 }
 
-
-
-
-
-
-
-
-@bgcolor:#2FAC9B;
+@bgcolor:#ffffff;
 @border-radius: 0px;
 @span-w-h: 15px;
 
@@ -38,14 +34,9 @@
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-*{margin:0; padding: 0; box-sizing: border-box;}
-body,html{
-  margin: 10px auto;
-  text-align: center;
-  background: #1c1c1d;
-}
-*{ color:#666;}
-span{
+
+
+.spinner span{
   display: inline-block;
   height: @span-w-h;
   width:@span-w-h;
@@ -54,7 +45,7 @@ span{
 }
 .border-radius{border-radius: 500px;}
 
-*[id*="loader-"]{ margin-bottom: 30px;}
+
 //loop
 .generate-span1(5);
 
@@ -120,7 +111,7 @@ span{
   .generate-span6(@n, (@i + 1));
 }
 
-.generate-span7(20);
+.generate-span7(40);
 .generate-span7(@n, @i: 1) when (@i =< @n) {
   #loader-7 span:nth-child(@{i}){
     animation:temp 1s (@i * 0.05s) infinite cubic-bezier(0.005, 0.560, 0.580, 1.590);
