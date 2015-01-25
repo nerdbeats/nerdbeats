@@ -59,7 +59,7 @@ window.app.factory('AudioManagerService', function (AudioContext, Mixer) {
       return mx.decks[normalize(deck)].tempo(value);
     },
     state: function (deck) {
-      return mx.decks[normalize(d)].currentState();
+      return mx.decks[normalize(deck)].currentState();
     }
   };
 });
