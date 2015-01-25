@@ -49,7 +49,7 @@ MixerCtrl = function ($scope, AudioManagerService) {
   })
 
   $scope.$watch('vm.fade', function(){
-    AudioManagerService.fade($scope.vm.fade/100);
+    AudioManagerService.fade($scope.vm.fade);
   })
 }
 
