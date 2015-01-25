@@ -18,7 +18,7 @@
   </header>
   <div class="wave-progress">
     <waveform innercolor="#2b2b35" outercolor="#202028" track="track" class="wave-file"></waveform>
-    <div class="cue-marger">{{getCuePosition()}}</div>
+    <div class="cue-marker" style="width:{{getCuePosition()}}%">{{getCuePosition()}}</div>
     <div class="progress-slider">
       <span slider ng-model="vm.progress" min=0 max=100  handle="square" tooltip="hide"></span>
     </div>
