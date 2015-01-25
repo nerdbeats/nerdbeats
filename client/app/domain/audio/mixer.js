@@ -98,8 +98,6 @@ window.app.factory('Mixer', ['Lodash', 'AudioContext', 'AudioUnit', 'Deck', func
       }
 
       this.previousValue = originalValue;
-      console.log('left: ' + left.value);
-      console.log('right: ' + right.value);
     }
 
     return this.fadeValue;
