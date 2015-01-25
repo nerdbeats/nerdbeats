@@ -1,17 +1,19 @@
 <section class="player">
   <header>
     <div class="row player-head">
-      <div class="col-md-1 channel">
+      <div class="ph-item channel">
         {{channel}}
       </div>
-      <div class="col-md-8 channel-title">
+      <div class="ph-item channel-title">
         {{track.title}}
       </div>
-      <div class="col-md-2 channel-progress">
+      <div class="ph-item channel-progress">
         {{vm.time}}
       </div>
-      <div class="col-md-2 channel-tempo">
-        {{tempo}}
+      <div class="ph-item channel-tempo">
+        <span>128BPM</span>
+        <span>0%</span>
+        <!--{{tempo}}-->
       </div>
     </div>
   </header>
@@ -20,6 +22,7 @@
     <div class="progress-slider">
       <span slider ng-model="vm.progress" min=0 max=100  handle="square" tooltip="hide"></span>
     </div>
+
     <div class="tempo-slider-container">
       <button class="btn-tempo-up btn-tempo" ng-click="changeTempo(0.001)"><i class="fa fa-chevron-up"></i></button>
       <div class="tempo-slider">
