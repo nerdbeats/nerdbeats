@@ -1,12 +1,12 @@
-window.app.directive('delayEffect', function () {
+window.app.directive('phaserEffect', function () {
   return {
     restrict: 'E',
-    templateUrl: 'components/effects/delay/template.html',
+    templateUrl: 'components/effects/phaser/template.html',
     link: function ($scope) {
       var node = $scope.node;
       $scope.$watch('value', function (newValue) {
-        node.wetLevel(newValue * 100);
-        node.delayTime(newValue * 100);
+        node.depth(newValue);
+        node.rate(newValue * 10);
         node.feedback(newValue);
       });
     },

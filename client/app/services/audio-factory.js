@@ -1,8 +1,7 @@
 window.app.factory('AudioFactoryService',
-  function (Lodash, AudioContext, DubDelayUnit) {
+  function (Lodash, AudioContext, DelayUnit, OverdriveUnit, PhaserUnit, ChorusUnit, TremoloUnit, WahWahUnit) {
     lodash = Lodash;
     ctx = AudioContext;
-    DubDelay = DubDelayUnit;
     return {
       getContext: function () {
         return ctx;
@@ -25,40 +24,8 @@ window.app.factory('AudioFactoryService',
       createGain: function () {
         return this.getContext().createGain();
       },
-      createDubDelay: function (options) {
-        var node = new DubDelay();
-        options = options || {};
-
-        if (lodash.isNumber(options.delayTime)) {
-          node.delayTime.value = options.delayTime;
-        }
-
-        return node;
-      },
-      createDistorion:function (options) {
-        var makeDistortionCurve = function () {
-            var k = typeof amount === 'number' ? amount : 50,
-              n_samples = this.getContext().sampleRate,
-              curve = new Float32Array(n_samples),
-              deg = Math.PI / 180,
-              i = 0,
-              x;
-            for ( ; i < n_samples; ++i ) {
-              x = i * 2 / n_samples - 1;
-              curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
-            }
-            return curve;
-          };
-        var node = this.getContext().createWaveShaper();
-        options = lodash.defaults(options || {}, {
-          curve: 400,
-          oversample: '4x'
-        });
-
-        distortion.curve = makeDistortionCurve.call(this, options.curve);
-        distortion.oversample = options.oversample;
-
-        return node;
+      createDelay: function () {
+        return new DelayUnit();
       },
       createFilter: function (options) {
         var node = this.getContext().createBiquadFilter();
@@ -104,6 +71,21 @@ window.app.factory('AudioFactoryService',
           frequency: 2500,
           q: 40
         });
+      },
+      createOverdrive: function () {
+        return new OverdriveUnit();
+      },
+      createPhaser: function () {
+        return new PhaserUnit();
+      },
+      createChorus: function () {
+        return new ChorusUnit();
+      },
+      createTremolo: function () {
+        return new TremoloUnit();
+      },
+      createWahWah: function () {
+        return new WahWahUnit();
       }
     };
   });
