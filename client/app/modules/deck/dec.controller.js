@@ -249,6 +249,12 @@ DeckCtrl = function ($scope, $rootScope, AudioLoaderService, AudioManagerService
 
       $scope.closeGallery();
     }
+
+
+
+
   };
+
+
 }
 
